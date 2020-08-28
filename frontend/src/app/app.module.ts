@@ -12,6 +12,7 @@ import { AdministrationComponent } from './administration/administration.compone
 import { SignInComponent } from './sign-in/sign-in.component';
 import { OutletsComponent } from './outlets/outlets.component';
 import { BooksComponent } from './books/books.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { BooksComponent } from './books/books.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

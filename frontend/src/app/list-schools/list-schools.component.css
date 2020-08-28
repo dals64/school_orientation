@@ -1,0 +1,9 @@
+#singleschool{
+    padding: 5px 10px 5px 10px;
+    box-shadow: 3px 2px 3px 3px rgb(237, 245, 239);
+    border-radius: 5px;
+}
+
+#singleschool:hover{
+    box-shadow: 3px 2px 3px 3px rgb(187, 252, 203);
+}
