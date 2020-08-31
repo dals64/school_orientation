@@ -13,6 +13,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { OutletsComponent } from './outlets/outlets.component';
 import { BooksComponent } from './books/books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2CarouselamosModule} from 'ng2-carouselamos';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2CarouselamosModule
   ],
   providers: [],
   bootstrap: [AppComponent]
