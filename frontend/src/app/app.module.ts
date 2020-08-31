@@ -13,7 +13,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { OutletsComponent } from './outlets/outlets.component';
 import { BooksComponent } from './books/books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Ng2CarouselamosModule} from 'ng2-carouselamos';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { Ng2CarouselamosModule} from 'ng2-carouselamos';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    Ng2CarouselamosModule
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
