@@ -11,15 +11,14 @@ import { MentorComponent } from './mentor/mentor.component';
 import { BooksComponent } from './books/books.component';
 
 const routes: Routes = [
-  {path:"/admin", component: SignInComponent, outlet:'principal'},
-  {path:"", component: AccueilComponent, outlet:'principal'},
-  {path:"/home", component: AppBarComponent, outlet:'principal', children:[
-    {path: "schools", component: ListSchoolsComponent, outlet:'application'},
-    {path:"", component: ListCareersComponent, outlet:'application'},
-    {path:"outlets", component:OutletsComponent, outlet:'application'},
-    {path:"mentors", component:MentorComponent, outlet:'application'},
-    {path:"books", component:BooksComponent, outlet:'application'}
-  ]}
+  { path: "", component: AccueilComponent },
+  {path:"admin", component:SignInComponent},
+  {path:"home", component:AppBarComponent, children:[
+    { path: "", component: ListCareersComponent, outlet: 'content' },
+    {path:"schools", component:ListSchoolsComponent, outlet:'content'},
+    { path: "outlets", component: OutletsComponent, outlet: 'content' },
+    { path: "mentors", component: MentorComponent, outlet: 'content' },
+  ]},
 ];
 
 @NgModule({
