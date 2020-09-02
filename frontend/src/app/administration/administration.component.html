@@ -1,1 +1,26 @@
-<p>administration works!</p>
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading" id="title">DASHBOARD</div>
+        <div class="list-group list-group-flush">
+            <a [routerLink]="[{outlets: {admin:['speciality']}}]" class="list-group-item list-group-item-action bg-dark side">Spécialités</a>
+            <a [routerLink]="[{outlets: {admin:['careers']}}]" class="list-group-item list-group-item-action bg-dark side">Carrières</a>
+            <a [routerLink]="[{outlets: {admin:['schools']}}]" class="list-group-item list-group-item-action bg-dark side">Ecoles</a>
+            <a [routerLink]="[{outlets: {admin:['mentors']}}]" class="list-group-item list-group-item-action bg-dark side">Mentor</a>
+            <a [routerLink]="[{outlets: {admin:['outlets']}}]" class="list-group-item list-group-item-action bg-dark side">Débouchés</a>
+            <a [routerLink]="[{outlets: {admin:['books']}}]" class="list-group-item list-group-item-action bg-dark side">Livres</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+        <button class="btn btn-primary" id="menu-toggle" style="margin-top: 20px;">Toggle Menu</button>
+        <router-outlet name="admin"></router-outlet>  
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+

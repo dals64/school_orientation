@@ -14,6 +14,12 @@ import { OutletsComponent } from './outlets/outlets.component';
 import { BooksComponent } from './books/books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { AdminCareerComponent } from './admin-career/admin-career.component';
+import { AdminSchoolComponent } from './admin-school/admin-school.component';
+import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
+import { AdminBookComponent } from './admin-book/admin-book.component';
+import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
+import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AdministrationComponent,
     SignInComponent,
     OutletsComponent,
-    BooksComponent
+    BooksComponent,
+    AdminCareerComponent,
+    AdminSchoolComponent,
+    AdminOutletComponent,
+    AdminBookComponent,
+    AdminMentorComponent,
+    AdminSpecialityComponent
   ],
   imports: [
     BrowserModule,
