@@ -29,6 +29,12 @@ const routes: Routes = [
     {path:"books", component:AdminBookComponent, outlet:'admin'},
     {path:"outlets", component:AdminOutletComponent, outlet:'admin'}
   ]},
+  { path: "careers", component: ListCareersComponent},
+  { path: "schools", component: ListSchoolsComponent},
+  { path: "outlets", component: OutletsComponent},
+  { path: "mentors", component: MentorComponent},
+  { path: "books", component: BooksComponent},
+  /*
   {path:"home", component:AppBarComponent, children:[
     {path:"acceuil", component: AccueilComponent, outlet:'content'},
     { path: "careers", component: ListCareersComponent, outlet: 'content' },
@@ -37,6 +43,7 @@ const routes: Routes = [
     { path: "mentors", component: MentorComponent, outlet: 'content' },
     { path: "books", component: BooksComponent, outlet: 'content' },
   ]},
+  */
 ];
 
 @NgModule({
