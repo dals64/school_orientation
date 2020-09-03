@@ -48,18 +48,14 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form #editForm="ngForm" (ngSubmit)="edit()">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="">
+                        <input type="text" class="form-control" name="name" placeholder="" [(ngModel)]="formData.name">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email</label>
-                        <input type="email" class="form-control" name="localisation" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Contact</label>
-                        <input type="text" class="form-control" name="site" placeholder="">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <textarea class="form-control" name="description" placeholder="" [(ngModel)]="formData.description"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
@@ -89,23 +85,19 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form #registerForm="ngForm" (ngSubmit)="register()">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="">
+                        <input type="text" class="form-control" name="name" placeholder="" [(ngModel)]="formData.name" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Email</label>
-                        <input type="email" class="form-control" name="localisation" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Contact</label>
-                        <input type="text" class="form-control" name="site" placeholder="">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <textarea class="form-control" name="description" placeholder="" [(ngModel)]="formData.description" required></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                             style="margin-right: 15px;">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Créer</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Créer</button>
                     </div>
                 </form>
 

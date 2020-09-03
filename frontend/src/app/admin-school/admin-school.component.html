@@ -5,7 +5,7 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nom</th>
-                <th scope="col">situation</th>
+                <th scope="col">Localisation</th>
                 <th scope="col">site</th>
                 <th scope="col">Contact</th>
                 <th scope="col">Actions</th>
@@ -55,26 +55,26 @@
             </div>
             <div class="modal-body">
 
-                <form>
+                <form #editForm="ngForm"  (ngSubmit)='edit()'>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="">
+                        <input type="text" class="form-control" name="name" placeholder="" [(ngModel)]="formData.name">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Localisation</label>
-                        <input type="text" class="form-control" name="localisation" placeholder="">
+                        <input type="text" class="form-control" name="localisation" placeholder="" [(ngModel)]="formData.location">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Site</label>
-                        <input type="text" class="form-control" name="site" placeholder="">
+                        <input type="text" class="form-control" name="site" placeholder=""  [(ngModel)]="formData.site">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Contact</label>
-                        <input type="text" class="form-control" name="contact" placeholder="">
+                        <input type="text" class="form-control" name="contact" placeholder="" [(ngModel)]="formData.contact">
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 15px;">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Enregistrer</button>
                     </div>
                 </form>
 
@@ -98,22 +98,22 @@
             </div>
             <div class="modal-body">
         
-                <form>
+                <form #registerForm="ngForm" (ngSubmit)="register()">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="">
+                        <input type="text" class="form-control" name="name" placeholder="" [(ngModel)]="formData.name" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Localisation</label>
-                        <input type="text" class="form-control" name="localisation" placeholder="">
+                        <input type="text" class="form-control" name="localisation" placeholder="" [(ngModel)]="formData.location" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Site</label>
-                        <input type="text" class="form-control" name="site" placeholder="">
+                        <input type="text" class="form-control" name="site" placeholder="" [(ngModel)]="formData.site">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Contact</label>
-                        <input type="text" class="form-control" name="contact" placeholder="">
+                        <input type="text" class="form-control" name="contact" placeholder="" [(ngModel)]="formData.contact" required>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"

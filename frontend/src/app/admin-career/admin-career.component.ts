@@ -9,7 +9,20 @@ export class AdminCareerComponent implements OnInit {
 
   constructor() { }
 
+  public formData = {
+    name:null,
+    description:null,
+    school:null
+  }
+
   ngOnInit(): void {
   }
 
+  edit(){
+
+  }
+
+  register(){
+    
+  }
 }

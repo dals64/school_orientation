@@ -9,7 +9,21 @@ export class AdminMentorComponent implements OnInit {
 
   constructor() { }
 
+  public formData = {
+    name:null,
+    contact:null,
+    email:null
+  }
+
   ngOnInit(): void {
+  }
+
+  edit(){
+
+  }
+
+  register(){
+    
   }
 
 }

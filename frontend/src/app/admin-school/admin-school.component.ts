@@ -12,4 +12,20 @@ export class AdminSchoolComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public formData = {
+    name:null,
+    location:null,
+    site:null,
+    contact:null,
+    outlet:null
+  }
+
+  edit(){
+
+  }
+
+  register(){
+
+  }
+
 }

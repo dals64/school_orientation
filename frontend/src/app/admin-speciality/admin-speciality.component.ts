@@ -12,4 +12,18 @@ export class AdminSpecialityComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public formData = {
+    name:null,
+    career:null
+  }
+
+
+  edit(){
+    alert('editer')
+  }
+
+  register(){
+      console.log('ajouter')
+  }
+
 }

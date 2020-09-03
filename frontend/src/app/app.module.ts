@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppBarComponent } from './app-bar/app-bar.component';
@@ -20,6 +19,7 @@ import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
 import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -45,6 +45,7 @@ import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.co
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
