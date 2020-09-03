@@ -7,14 +7,16 @@
         <ul class="navbar-nav mr-auto">
             
         </ul>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" style="margin-right: 20px;">
             <li class="nav-item active">
-                <a class="nav-link" href="">Consulter la librairie</a>
+                <a class="nav-link" [routerLink]="[ {outlets: {content:['accueil']}}]"  style="margin-right: 25px;">Accueil</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="">test</a>
+                <a class="nav-link"  [routerLink]="[ {outlets: {content:['books']}} ]"  style="margin-right: 25px;">Consulter la librairie</a>
             </li>
-            
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="[ {outlets: {content:['mentors']}} ]"  style="margin-right: 25px;">Mentors</a>
+            </li>  
         </ul>
     </div>
 </nav>
