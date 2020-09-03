@@ -11,3 +11,10 @@
 #image{
     margin-right: 40px;
 }
+
+#title{
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}

@@ -1,12 +1,11 @@
 <div class="container-fluid">
-    <button class="btn" id="add"> <img src="assets/images/add.png"> Ajouter une débouchée</button>
+    <button class="btn" id="add"  data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter une débouchée</button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Description</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -15,24 +14,95 @@
                 <th scope="row">1</th>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
+                <td> <a id="image"   data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
-                <td>@fat</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
+                <td> <a id="image"   data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td>Larry</td>
                 <td>the Bird</td>
-                <td>@twitter</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
+                <td> <a id="image"   data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>
 </div>
 
+
+<!-- edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark" id="header">
+                <div class="container">
+                    <h3 class="modal-title" id="title">Editer une débouchée</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nom</label>
+                        <input type="text" class="form-control" name="name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <textarea class="form-control" name="description" placeholder=""></textarea> 
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            style="margin-right: 15px;">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark" id="header">
+                <div class="container">
+                    <h3 class="modal-title" id="title">Editer une débouchée</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nom</label>
+                        <input type="text" class="form-control" name="name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <textarea class="form-control" name="description" placeholder=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            style="margin-right: 15px;">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Créer</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
