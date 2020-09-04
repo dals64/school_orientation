@@ -20,6 +20,7 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
 import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.component';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     CarouselModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

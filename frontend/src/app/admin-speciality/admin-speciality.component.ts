@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-admin-speciality',
@@ -23,7 +24,11 @@ export class AdminSpecialityComponent implements OnInit {
   }
 
   register(){
-      console.log('ajouter')
+    axios.get('http://localhost:8000/speciality/register/').then(function (response) {
+      console.log(response);
+    }).catch(function (error) {
+      console.log(error);
+    });
   }
 
 }
