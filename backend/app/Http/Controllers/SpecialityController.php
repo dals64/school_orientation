@@ -22,43 +22,22 @@ class SpecialityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(request $request)
+    public function create(Request $request)
     {
-        return dd($request);
+        $spec = new Speciality;
+        $spec->name = $request->input('name');
+        try {
+            $spec->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Speciality  $speciality
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Speciality $speciality)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Speciality  $speciality
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Speciality $speciality)
-    {
-        //
-    }
+   public function getAll(){
+       return Speciality::all();
+   }
 
     /**
      * Update the specified resource in storage.
