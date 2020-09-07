@@ -7,57 +7,29 @@ use Illuminate\Http\Request;
 
 class OutletController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $outlet = new Outlet;
+        $outlet->name = $request->input('name');
+        $outlet->description = $request->input('description');
+
+        try {
+            $outlet->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Outlet  $outlet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Outlet $outlet)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Outlet  $outlet
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Outlet $outlet)
-    {
-        //
+    public function getAll(){
+        return Outlet::all();
     }
 
     /**

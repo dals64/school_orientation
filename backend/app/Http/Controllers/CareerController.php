@@ -22,43 +22,24 @@ class CareerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $career = new Career;
+        $career->name = $request->input('name');
+        $career->description = $request->input('description');
+        try {
+            $career->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function getAll(){
+        return Career::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Career $career)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Career  $career
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Career $career)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.

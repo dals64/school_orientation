@@ -10,23 +10,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+            <tr *ngFor="let career of careers">
+                <th scope="row">{{career.id}}</th>
+                <td>{{career.name}}</td>
+                <td>{{career.description.slice(0,40)+' ...'}}</td>
                 <td> <a id="image"   data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td> <a id="image"  data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td> <a id="image"  data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>

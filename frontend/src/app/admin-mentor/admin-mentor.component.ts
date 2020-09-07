@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-mentor',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminMentorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
+
+  public mentors;
 
   public formData = {
     name:null,
@@ -16,14 +20,26 @@ export class AdminMentorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.get('http://localhost:8000/api/mentor').subscribe(
+      data => this.mentors = data,
+      error => console.log(error)
+    )
   }
 
   edit(){
-
-  }
+}
 
   register(){
-    
+    axios.get('http://localhost:8000/api/mentor/register/').then(function (response) {
+      if (response.data = 'success') {
+        alert('Ajout de la débouchée réussi');
+      } else {
+        alert("erreur lors de l'ajout, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
   }
 
 }

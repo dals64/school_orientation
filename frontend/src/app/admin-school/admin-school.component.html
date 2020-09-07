@@ -12,29 +12,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+            <tr *ngFor="let school of schools">
+                <th scope="row">{{school.id}}</th>
+                <td>{{school.name}}</td>
+                <td>{{school.location}}</td>
+                <td>{{school.site}}</td>
+                <td>{{school.contact}}</td>
                 <td> <a id="image" data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td> <a id="image"  data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>Thornton</td>
-                <td>@twitter</td>
-                <td> <a id="image"  data-toggle="modal" data-target="#editModal"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>

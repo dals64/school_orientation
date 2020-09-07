@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import axios from 'axios';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-outlet',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminOutletComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
+
+  public outlets;
 
   public formData = {
     name:null,
@@ -16,6 +20,10 @@ export class AdminOutletComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.http.get('http://localhost:8000/api/outlet').subscribe(
+      data => this.outlets = data,
+      error => console.log(error)
+    )
   }
 
   edit(){
@@ -23,7 +31,16 @@ export class AdminOutletComponent implements OnInit {
   }
 
   register(){
-
+    axios.post('http://localhost:8000/api/outlet/register/', this.formData).then(function (response) {
+      if (response.data = 'success') {
+        alert('Ajout de la débouchée réussi')
+      } else {
+        alert("erreur lors de l'ajout, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
   }
 
 }

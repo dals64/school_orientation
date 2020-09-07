@@ -22,43 +22,25 @@ class MentorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $mentor = new Mentor;
+        $mentor->name = $request->input('name');
+        $mentor->contact = $request->input('contact');
+        $mentor->email = $request->input('email');
+        try {
+            $mentor->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function getAll(){
+        return Mentor::all();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Mentor  $mentor
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Mentor $mentor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Mentor  $mentor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Mentor $mentor)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
