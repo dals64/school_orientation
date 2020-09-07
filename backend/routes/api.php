@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/speciality/register/', 'SpecialityController@create');
+Route::post('/speciality/update/', 'SpecialityController@update');
+Route::post('/speciality/delete/', 'SpecialityController@destroy');
 Route::get('/speciality', 'SpecialityController@getAll');
 
 Route::post('/school/register/', 'SchoolController@create');
@@ -31,5 +33,8 @@ Route::get('/career', 'CareerController@getAll');
 Route::post('/outlet/register/','OutletController@create');
 Route::get('/outlet', 'OutletController@getAll');
 
-Route::post('/mentor/register/', 'MentorController@create');
+Route::post('/mentor/register/','MentorController@create');
+Route::get('/mentor', 'MentorController@getAll');
+
+Route::post('/mentor/register/','MentorController@create');
 Route::get('/mentor', 'MentorController@getAll');

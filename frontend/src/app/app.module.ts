@@ -21,6 +21,8 @@ import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
 import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {SpecialityService} from './Services/speciality.service';
+import {MentorService} from './Services/mentor.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,10 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    SpecialityService,
+    MentorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

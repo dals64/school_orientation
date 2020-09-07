@@ -30,9 +30,10 @@ export class AdminMentorComponent implements OnInit {
 }
 
   register(){
-    axios.get('http://localhost:8000/api/mentor/register/').then(function (response) {
+
+    axios.post('http://localhost:8000/api/mentor/register/', this.formData).then(function (response) {
       if (response.data = 'success') {
-        alert('Ajout de la débouchée réussi');
+        alert('Ajout du mentor réussi');
       } else {
         alert("erreur lors de l'ajout, veuillez reéssayer")
       }
@@ -40,6 +41,7 @@ export class AdminMentorComponent implements OnInit {
       console.log(error);
       alert("erreur lors de connexion au serveur, veuillez reéssayer")
     });
+
   }
 
 }

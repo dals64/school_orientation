@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Speciality;
+use App\Career;
 use Illuminate\Http\Request;
 
 class SpecialityController extends Controller
@@ -46,9 +47,36 @@ class SpecialityController extends Controller
      * @param  \App\Speciality  $speciality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Speciality $speciality)
+    public function update(Request $request)
     {
-        //
+        $spec = Speciality::find($request->input('id'));
+        $spec->name = $request->input('name');
+        try {
+            $spec->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        
+        if($request->input('career')!=null){
+            $career = Career::find($request->input('career'));
+            try {
+                $spec->careers()->attach($career);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+        
+        if($request->input('careerDel')!=null){
+            $career = Career::find($request->input('careerDel'));
+            try {
+                $spec->careers()->detach($career);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
+        return 'success';
+
     }
 
     /**
@@ -57,8 +85,14 @@ class SpecialityController extends Controller
      * @param  \App\Speciality  $speciality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Speciality $speciality)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        try {
+            $spec=Speciality::where('id',$id)->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return 'success';
     }
 }

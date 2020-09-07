@@ -37,6 +37,7 @@ class MentorController extends Controller
         return 'success';
     }
 
+
     public function getAll(){
         return Mentor::all();
     }
