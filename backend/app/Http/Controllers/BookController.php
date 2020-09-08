@@ -82,4 +82,6 @@ class BookController extends Controller
     {
         //
     }
+
+    public function getAll(){}
 }

@@ -35,10 +35,16 @@ Route::post('/career/delete/', 'CareerController@destroy');
 Route::get('/career', 'CareerController@getAll');
 
 Route::post('/outlet/register/','OutletController@create');
+Route::post('/outlet/update/','OutletController@update');
+Route::post('/outlet/delete/','OutletController@destroy');
 Route::get('/outlet', 'OutletController@getAll');
 
 Route::post('/mentor/register/','MentorController@create');
+Route::post('/mentor/update/','MentorController@update');
+Route::post('/mentor/delete/','MentorController@destroy');
 Route::get('/mentor', 'MentorController@getAll');
 
-Route::post('/mentor/register/','MentorController@create');
-Route::get('/mentor', 'MentorController@getAll');
+Route::post('/book/register/','BookController@create');
+Route::post('/book/update/','BookController@update');
+Route::post('/book/delete/','BookController@destroy');
+Route::get('/book', 'BookController@getAll');

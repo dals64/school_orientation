@@ -13,6 +13,12 @@ export class AdminOutletComponent implements OnInit {
 
   public outlets;
 
+  public temp = {
+    id:null,
+    name:null,
+    description:null,
+  }
+
   public formData = {
     name:null,
     description:null,
@@ -27,7 +33,26 @@ export class AdminOutletComponent implements OnInit {
   }
 
   edit(){
+    axios.post('http://localhost:8000/api/outlet/update/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('modification réussie')
+      } else {
+        alert("erreur lors de la modification, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  }
 
+  store(outlet){
+    this.temp.id = outlet.id
+    this.temp.name= outlet.name
+    this.temp.description = outlet.description
+  }
+
+  storeDel(outlet){
+    this.temp.id = outlet.id
   }
 
   register(){
@@ -36,6 +61,19 @@ export class AdminOutletComponent implements OnInit {
         alert('Ajout de la débouchée réussi')
       } else {
         alert("erreur lors de l'ajout, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  }
+
+  delete(){
+    axios.post('http://localhost:8000/api/outlet/delete/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('élément supprimé')
+      } else {
+        alert("erreur lors de la suppression, veuillez reéssayer")
       }
     }).catch(function (error) {
       console.log(error);

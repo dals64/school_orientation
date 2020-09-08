@@ -39,9 +39,19 @@ class OutletController extends Controller
      * @param  \App\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outlet $outlet)
+    public function update(Request $request)
     {
-        //
+        $outlet = Outlet::find($request->input('id'));
+        $outlet->name = $request->input('name');
+        $outlet->description = $request->input('description');
+
+        try {
+            $outlet->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
     /**
@@ -50,8 +60,14 @@ class OutletController extends Controller
      * @param  \App\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Outlet $outlet)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            Outlet::where('id',$request->input('id'))->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 }

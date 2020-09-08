@@ -50,9 +50,20 @@ class MentorController extends Controller
      * @param  \App\Mentor  $mentor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mentor $mentor)
+    public function update(Request $request)
     {
-        //
+        $mentor = Mentor::find($request->input('id'));
+        $mentor->name = $request->input('name');
+        $mentor->email = $request->input('email');
+        $mentor->contact = $request->input('contact');
+
+        try {
+            $mentor->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
     /**
@@ -61,8 +72,14 @@ class MentorController extends Controller
      * @param  \App\Mentor  $mentor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mentor $mentor)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        try {
+            $mentor = Mentor::where('id',$id)->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return 'success';
     }
 }

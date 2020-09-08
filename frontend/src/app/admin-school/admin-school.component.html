@@ -42,19 +42,19 @@
                 <form #editForm="ngForm"  (ngSubmit)='edit()'>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="" value={{temp.name}} [(ngModel)]="formData.name">
+                        <input type="text" class="form-control" name="name" placeholder="" value={{temp.name}} [(ngModel)]="temp.name">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Localisation</label>
-                        <input type="text" class="form-control" name="localisation" placeholder="" value={{temp.location}} [(ngModel)]="formData.location">
+                        <input type="text" class="form-control" name="localisation" placeholder="" value={{temp.location}} [(ngModel)]="temp.location">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Site</label>
-                        <input type="text" class="form-control" name="site" placeholder="" value={{temp.site}}  [(ngModel)]="formData.site">
+                        <input type="text" class="form-control" name="site" placeholder="" value={{temp.site}}  [(ngModel)]="temp.site">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Contact</label>
-                        <input type="text" class="form-control" name="contact" placeholder="" value={{temp.contact}} [(ngModel)]="formData.contact">
+                        <input type="text" class="form-control" name="contact" placeholder="" value={{temp.contact}} [(ngModel)]="temp.contact">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlSelect2">Attacher une débouchée</label>

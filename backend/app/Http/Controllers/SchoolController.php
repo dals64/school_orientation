@@ -64,6 +64,7 @@ class SchoolController extends Controller
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
+        
         if($request->input('outlet')!=null){
             $outlet = Outlet::find($request->input('outlet'));
             try {
