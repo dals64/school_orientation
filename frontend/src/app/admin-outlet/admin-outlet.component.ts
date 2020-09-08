@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-outlet',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminOutletComponent implements OnInit {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient, private router : Router) { }
 
   public outlets;
 
@@ -56,6 +57,7 @@ export class AdminOutletComponent implements OnInit {
   }
 
   register(){
+  
     axios.post('http://localhost:8000/api/outlet/register/', this.formData).then(function (response) {
       if (response.data = 'success') {
         alert('Ajout de la débouchée réussi')
@@ -66,6 +68,7 @@ export class AdminOutletComponent implements OnInit {
       console.log(error);
       alert("erreur lors de connexion au serveur, veuillez reéssayer")
     });
+   
   }
 
   delete(){
