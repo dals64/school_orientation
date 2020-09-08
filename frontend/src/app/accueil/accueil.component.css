@@ -1,0 +1,23 @@
+
+#row{
+    padding: 10px;
+}
+#img{
+    padding: 15px 15px 15px 15px;
+    box-shadow: 10px  5px  10px  5px  #145259;
+    border-radius: 5px;
+}
+
+a {
+color: black;
+}
+
+footer{
+  background-color: #145259;
+}
+h1{
+   padding: 30px;
+}
+nav{
+  padding: 30px;
+}
