@@ -20,16 +20,36 @@ export class AdminSchoolComponent implements OnInit {
     )
   }
 
+  public temp = {
+    id:null,
+    name: null,
+    location: null,
+    site: null,
+    contact: null,
+    outlet: null,
+    outletDel:null
+  }
+
   public formData = {
     name:null,
     location:null,
     site:null,
     contact:null,
-    outlet:null
   }
 
-  edit(){
+  public outlets;
 
+  edit(){
+    axios.post('http://localhost:8000/api/school/update/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('Modification de l\'école réussie')
+      } else {
+        alert("erreur lors de la modification, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
   }
 
   register(){
@@ -38,6 +58,35 @@ export class AdminSchoolComponent implements OnInit {
         alert('Ajout de l\'école réussi')
       } else {
         alert("erreur lors de l'ajout, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  }
+
+  store(school){
+    this.temp.id = school.id
+    this.temp.name = school.name
+    this.temp.location = school.location
+    this.temp.site = school.site
+    this.temp.contact = school.contact
+    this.http.get('http://localhost:8000/api/outlet').subscribe(
+      data => this.outlets = data,
+      error => console.log(error)
+    )
+  }
+
+  storeDel(school){
+    this.temp.id = school.id
+  }
+
+  delete(){
+    axios.post('http://localhost:8000/api/school/delete/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('école supprimée')
+      } else {
+        alert("erreur lors de la suppression, veuillez reéssayer")
       }
     }).catch(function (error) {
       console.log(error);

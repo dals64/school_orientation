@@ -25,9 +25,13 @@ Route::post('/speciality/delete/', 'SpecialityController@destroy');
 Route::get('/speciality', 'SpecialityController@getAll');
 
 Route::post('/school/register/', 'SchoolController@create');
+Route::post('/school/update/', 'SchoolController@update');
+Route::post('/school/delete/', 'SchoolController@destroy');
 Route::get('/school', 'SchoolController@getAll');
 
 Route::post('/career/register/', 'CareerController@create');
+Route::post('/career/update/', 'CareerController@update');
+Route::post('/career/delete/', 'CareerController@destroy');
 Route::get('/career', 'CareerController@getAll');
 
 Route::post('/outlet/register/','OutletController@create');

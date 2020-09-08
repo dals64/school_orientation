@@ -13,6 +13,20 @@ export class AdminCareerComponent implements OnInit {
 
   public careers;
 
+  public schools;
+
+  public mentors;
+
+  public temp = {
+    id:null,
+    name:null,
+    description:null,
+    school:null,
+    schoolDel:null,
+    mentor:null,
+    mentorDel:null
+  }
+
   public formData = {
     name:null,
     description:null,
@@ -27,7 +41,34 @@ export class AdminCareerComponent implements OnInit {
   }
 
   edit(){
+    axios.post('http://localhost:8000/api/career/update/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('Modification de la carrière réussi')
+      } else {
+        alert("erreur lors de la modification, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  }
 
+  store(career){
+    this.temp.name = career.name
+    this.temp.id = career.id
+    this.temp.description = career.description
+    this.http.get('http://localhost:8000/api/school').subscribe(
+      data => this.schools = data,
+      error => console.log(error)
+    )
+    this.http.get('http://localhost:8000/api/mentor').subscribe(
+      data => this.mentors = data,
+      error => console.log(error)
+    )
+  }
+
+  storeDel(career) {
+    this.temp.id = career.id;
   }
 
   register(){
@@ -36,6 +77,19 @@ export class AdminCareerComponent implements OnInit {
         alert('Ajout de la carrière réussi')
       } else {
         alert("erreur lors de l'ajout, veuillez reéssayer")
+      }
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  }
+
+  delete(){
+    axios.post('http://localhost:8000/api/career/delete/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('carrière supprimée')
+      } else {
+        alert("erreur lors de la suppression, veuillez reéssayer")
       }
     }).catch(function (error) {
       console.log(error);
