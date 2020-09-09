@@ -3,23 +3,27 @@
 
 </div>
 
-
-    <form class="form-inline my-2 my-lg-0" #testForm=ngForm (ngSubmit)="test()">
-        <div class="form-group">
-            <label for="select">Choisissez votre spécialité</label>
-            <select class="form-control" id="select" name="speciality" placeholder=""
-                [(ngModel)]="speciality.id" required>
-                <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
+<nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand"></a>
+        <form class="form-inline my-2 my-lg-0">
+            <select class="form-control" id="exampleFormControlSelect1" placeholder="Entrer votre serie">
+                <option>A</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>G</option>
+                <option>IH</option>
             </select>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [disabled]="!testForm.valid">
-                C'est parti
-            </button>
-        </div>     
-    </form>
     
- 
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                <a href="#">
+                    C'est parti!
+                </a>
+    
+            </button>
+        </form>
+        <a class="navbar-brand"></a>
+    </nav>
 <div class="footer-copyright text-center py-3">
     <h1>Toutes les carrières disponibles au Cameroun</h1>
 </div>
@@ -46,8 +50,8 @@
 </div>
 
 <div class="footer-copyright text-center py-3">
-    <h1>Toutes les universités du Cameroun</h1>
-</div>
+        <h1>Toutes les universités du Cameroun</h1>
+    </div>
 
 <div class="row">
 
@@ -71,4 +75,3 @@
     </div>
 
 </div>
-
