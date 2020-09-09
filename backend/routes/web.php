@@ -18,6 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/speciality/register/', function(Request $request){
-    return 'okay bro';
-});
+Route::get('/speciality/test', 'SpecialityController@test');

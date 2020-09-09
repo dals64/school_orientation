@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/speciality/register/', 'SpecialityController@create');
 Route::post('/speciality/update/', 'SpecialityController@update');
 Route::post('/speciality/delete/', 'SpecialityController@destroy');
+Route::post('/speciality/careers/', 'SpecialityController@getCareers');
 Route::get('/speciality', 'SpecialityController@getAll');
 
 Route::post('/school/register/', 'SchoolController@create');

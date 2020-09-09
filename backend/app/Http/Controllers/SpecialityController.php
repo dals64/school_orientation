@@ -95,4 +95,14 @@ class SpecialityController extends Controller
         }
         return 'success';
     }
+
+    public function getCareers(Request $request){
+        $spec = Speciality::find($request->input('id'));
+        return $spec->careers()->getResults();
+    }
+
+    public function test(){
+        $spec = Speciality::find(2);
+        return dd($spec->careers()->getResults());
+    }
 }

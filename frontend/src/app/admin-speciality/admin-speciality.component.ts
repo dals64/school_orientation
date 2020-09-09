@@ -18,6 +18,7 @@ export class AdminSpecialityComponent implements OnInit {
     careerDel:null
   }
   public test;
+  
   public careers;
 
   public formData = {

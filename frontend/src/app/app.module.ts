@@ -23,6 +23,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SpecialityService} from './Services/speciality.service';
 import {MentorService} from './Services/mentor.service';
+import {PageNavigationService} from './Services/pageNavigation.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import {MentorService} from './Services/mentor.service';
   ],
   providers: [
     SpecialityService,
-    MentorService
+    MentorService,
+    PageNavigationService
   ],
   bootstrap: [AppComponent]
 })
