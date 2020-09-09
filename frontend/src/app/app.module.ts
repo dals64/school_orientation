@@ -24,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SpecialityService} from './Services/speciality.service';
 import {MentorService} from './Services/mentor.service';
 import {PageNavigationService} from './Services/pageNavigation.service';
+import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {PageNavigationService} from './Services/pageNavigation.service';
     AdminOutletComponent,
     AdminBookComponent,
     AdminMentorComponent,
-    AdminSpecialityComponent
+    AdminSpecialityComponent,
+    SchoolMentorComponent
   ],
   imports: [
     BrowserModule,

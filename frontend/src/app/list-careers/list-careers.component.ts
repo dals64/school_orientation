@@ -23,7 +23,7 @@ export class ListCareersComponent implements OnInit {
 
   redirect(id){
     this.service.storeCareer(id)
-    console.log(id)
+    this.router.navigate(['home', { outlets: { content: ['careerDetail'] } }]);
   }
 
 }

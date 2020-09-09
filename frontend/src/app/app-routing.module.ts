@@ -16,6 +16,7 @@ import { AdminSchoolComponent } from './admin-school/admin-school.component';
 import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
+import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 
 const routes: Routes = [
   {path:"", component: AccueilComponent},
@@ -32,9 +33,11 @@ const routes: Routes = [
   {path:"home", component:AppBarComponent, children:[
     {path:"acceuil", component: AccueilComponent, outlet:'content'},
     { path: "careers", component: ListCareersComponent, outlet: 'content' },
-    {path:"schools", component:ListSchoolsComponent, outlet:'content'},
+    { path: "careerDetail", component: SchoolMentorComponent, outlet:'content', children:[
+      {path:"schools", component:ListSchoolsComponent, outlet:'career'},
+      { path: "mentors", component: MentorComponent, outlet: 'career' }
+    ]},
     { path: "outlets", component: OutletsComponent, outlet: 'content' },
-    { path: "mentors", component: MentorComponent, outlet: 'content' },
     { path: "books", component: BooksComponent, outlet: 'content' },
   ]},
 ];
