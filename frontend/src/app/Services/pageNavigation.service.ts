@@ -9,31 +9,46 @@ export class PageNavigationService {
 
     constructor(private http : HttpClient){}
 
+    school = {
+        id: null,
+        name:null
+    }
+
     career = {
-        id:null
+        id:null,
+        name: null
     }
 
     speciality  = {
         id:null,
+        name:null
     }
 
     storeSpeciality(id){
         this.speciality.id = id;
     }
 
-    storeCareer(id){
+    storeCareer(id, name){
         this.career.id = id
+        this.career.name = name
+    }
+
+    storeSchool(id, name) {
+        this.school.id = id
+        this.school.name = name
+        console.log(this.school)
     }
 
     getSpeciality(){
         return this.speciality
     }
 
-    getSchools(id){
-
+    getCareer(){
+        return this.career
     }
 
-    getMentors(id){
-
+    getSchool(){
+        return this.school
     }
+
 }

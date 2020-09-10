@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { PageNavigationService } from '../Services/pageNavigation.service';
 
 @Component({
   selector: 'app-mentor',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MentorComponent implements OnInit {
 
-  customOptions: any = {
+  /*customOptions: any = {
     loop: true,
     mouseDrag: false,
     touchDrag: false,
@@ -30,48 +33,18 @@ export class MentorComponent implements OnInit {
       }
     },
     nav: true
-  }
+  }*/
 
   
-  class_one = [];
-  class_two = [];
-  class_three = [];
-  class_four = [];
+  constructor(private http: HttpClient, private router: Router, private service: PageNavigationService) { }
 
-  mentors = [
-    this.class_one, this.class_two, this.class_three, this.class_four
-  ]
-  
-  constructor() { }
+  public list;
 
   ngOnInit(): void {
-    for (let i =0; i<10; i++){
-      this.class_one.push({
-        name:'mantorname1',
-        skills:['maths','physiques','info'],
-        contact:'65423565555'
-      });
-      this.class_two.push({
-        name: 'mantorname2',
-        skills: ['english', 'geography', 'history', 'french'],
-        contact: '65423565555'
-      });
-      this.class_three.push({
-        name: 'mantorname3',
-        skills: ['finance', 'gestion', 'fiscalité'],
-        contact: '65423565555'
-      });
-      this.class_three.push({
-        name: 'mantorname3',
-        skills: ['finance', 'gestion', 'fiscalité'],
-        contact: '65423565555'
-      });
-      this.class_four.push({
-        name: 'mantorname4',
-        skills: ['comptabilité', 'statistiques'],
-        contact: '65423565555'
-      })
-    }
+    this.http.post('http://localhost:8000/api/career/mentors/', this.service.getCareer()).subscribe(
+      data => this.list = data,
+      error => console.log(error)
+    )
   }
 
 }

@@ -16,3 +16,16 @@ h3{
     margin-bottom: 50px;
     margin-top: 10px;
 }
+
+.tem{
+    display: table;
+
+}
+
+.slider {
+  width: 100vw;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: orange;
+  display: table;
+}

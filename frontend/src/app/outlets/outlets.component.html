@@ -1,3 +1,11 @@
+<div class="container-fluid" style="margin-top: 20px;">
+    <h2>
+        {{career.name}} > {{school.name}}
+    </h2>
+</div>
+<div class="container-fluid" style="text-align: center; margin-top:20px">
+    <h1>Liste des débouchées associées</h1>
+</div>
 <div class="mt-4 col-8 offset-2" id="singleschool" *ngFor="let item of list">
     <h4>{{item.name}}</h4>
     <p>{{item.description}}</p>

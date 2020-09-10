@@ -102,4 +102,9 @@ class SchoolController extends Controller
         }
         return 'success';
     }
+
+    public function getOutlets(Request $request){
+        $school = School::find($request->input('id'));
+        return $school->outlets()->getResults();
+    }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
+import { PageNavigationService } from '../Services/pageNavigation.service';
 
 @Component({
   selector: 'app-list-schools',
@@ -7,45 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListSchoolsComponent implements OnInit {
 
-  list = [
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-    {
-      name: 'school 1',
-      description: 'Consectetur non qui Lorem eu commodo cillum aliqua velit. Commodo sit tempor nulla quis exercitation anim. Labore ut sit ad sunt dolore aute irure est Lorem in commodo dolor culpa. Labore dolore quis aute eiusmod aliqua ut pariatur esse ad sit. Enim occaecat elit Lorem qui dolor et. Aute veniam magna culpa sunt veniam incididunt labore fugiat aliqua irure officia nulla consequat sint. Sunt aliqua cillum magna veniam tempor eiusmod nostrud commodo qui.'
-    },
-  ]
+  public list;
 
-
-  constructor() { }
+  constructor( private http : HttpClient, private router : Router, private service : PageNavigationService) { }
 
   ngOnInit(): void {
+    this.http.post('http://localhost:8000/api/career/schools/', this.service.getCareer()).subscribe(
+      data => this.list = data,
+      error => console.log(error)
+    )
+  }
+
+  storeSchool(id, name){
+    this.service.storeSchool(id, name)
+    this.router.navigate(['home', { outlets: { content: ['outlets'] } }])
   }
 
 }

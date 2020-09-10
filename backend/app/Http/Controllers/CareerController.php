@@ -116,4 +116,14 @@ class CareerController extends Controller
         }
         return 'success';
     }
+
+    public function getSchools(Request $request){
+        $career = Career::find($request->input('id'));
+        return $career->schools()->getResults();
+    }
+
+    public function getMentors(Request $request){
+        $career = Career::find($request->input('id'));
+        return $career->mentors()->getResults();
+    }
 }

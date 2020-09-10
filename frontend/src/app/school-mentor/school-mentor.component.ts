@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageNavigationService } from '../Services/pageNavigation.service';
 
 @Component({
   selector: 'app-school-mentor',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolMentorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : PageNavigationService) { }
+
+  public career;
 
   ngOnInit(): void {
+    this.career = this.service.getCareer();
   }
 
 }

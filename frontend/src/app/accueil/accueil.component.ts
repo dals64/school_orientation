@@ -16,7 +16,8 @@ export class AccueilComponent implements OnInit {
   public specialities;
 
   speciality = {
-    id:null
+    id:null,
+    name:null
   }
 
   ngOnInit(): void {

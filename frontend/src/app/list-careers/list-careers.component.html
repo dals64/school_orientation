@@ -1,4 +1,7 @@
-<div class="mt-4 col-8 offset-2" id="singlecareer" *ngFor="let item of list" (click)="redirect(item.id)">
+<div class="container-fluid" id="title">
+    <h1>Liste des choix de carrière possible pour votre série</h1>
+</div>
+<div class="mt-4 col-8 offset-2" id="singlecareer" *ngFor="let item of list" (click)="redirect(item.id, item.name)">
     <h4>{{item.name}}</h4>
     <p>{{item.description}}</p>
 </div>

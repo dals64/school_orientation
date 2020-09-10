@@ -22,16 +22,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/speciality/register/', 'SpecialityController@create');
 Route::post('/speciality/update/', 'SpecialityController@update');
 Route::post('/speciality/delete/', 'SpecialityController@destroy');
+Route::post('/speciality/index/', 'SpecialityController@index');
 Route::post('/speciality/careers/', 'SpecialityController@getCareers');
 Route::get('/speciality', 'SpecialityController@getAll');
 
 Route::post('/school/register/', 'SchoolController@create');
 Route::post('/school/update/', 'SchoolController@update');
 Route::post('/school/delete/', 'SchoolController@destroy');
+Route::post('/school/outlets/', 'SchoolController@getOutlets');
 Route::get('/school', 'SchoolController@getAll');
 
 Route::post('/career/register/', 'CareerController@create');
 Route::post('/career/update/', 'CareerController@update');
+Route::post('/career/schools/', 'CareerController@getSchools');
+Route::post('/career/mentors/', 'CareerController@getMentors');
 Route::post('/career/delete/', 'CareerController@destroy');
 Route::get('/career', 'CareerController@getAll');
 

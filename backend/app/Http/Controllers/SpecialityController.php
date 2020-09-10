@@ -13,9 +13,10 @@ class SpecialityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $spec = Speciality::find($request->input('id'));
+        return $spec;
     }
 
     /**

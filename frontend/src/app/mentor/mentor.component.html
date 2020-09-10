@@ -1,4 +1,4 @@
-<div class="container-fluid" id="categorie" *ngFor="let mentor of mentors">
+<!--<div class="container-fluid" id="categorie" *ngFor="let mentor of mentors">
     <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide *ngFor="let item of mentor">
             <div class="card" style="width: 18rem;" id="mentor">
@@ -23,4 +23,28 @@
             </div>
         </ng-template>
     </owl-carousel-o>
+</div> -->
+
+<div class="container-fluid slider">
+    <div class="card item" style="width: 18rem;" id="mentor" *ngFor="let item of list">
+        <img class="card-img-top" src="assets/images/avatar.png" alt="Card image cap">
+        <div class="card-body" id="body">
+            <div id="name">
+                <h3 class="card-title">Nom: {{item.name}}</h3>
+            </div>
+            <div class="card-text">
+                <div>
+                    Contacter le mentor:
+                </div>
+                <ul>
+                    <li>
+                        téléphone: {{item.contact}}
+                    </li>
+                    <li>
+                        email: {{item.email}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
