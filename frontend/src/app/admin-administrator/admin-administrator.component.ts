@@ -9,7 +9,18 @@ export class AdminAdministratorComponent implements OnInit {
 
   constructor() { }
 
+  public form = {
+    name: null,
+    email: null,
+    password: null,
+    password_confirmation: null
+  }
+
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
   }
 
 }
