@@ -13,11 +13,14 @@ color: black;
 }
 
 footer{
-  background-color: #145259;
+  background-color: #9da39d;
+
 }
 h1{
    padding: 30px;
 }
-nav{
-  padding: 30px;
+li{
+   margin: 1px 1px 1px 1px;
+   padding:1px 1px 1px 1px;
 }
+

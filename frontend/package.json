@@ -24,6 +24,7 @@
     "@material/list": "^7.0.0",
     "axios": "^0.20.0",
     "bootstrap": "^4.5.2",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "ngx-owl-carousel-o": "^4.0.0",
     "rxjs": "~6.5.5",

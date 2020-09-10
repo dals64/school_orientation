@@ -4,22 +4,21 @@
 </div>
 
 
-    <form class="form-inline my-2 my-lg-0" #testForm=ngForm (ngSubmit)="test()">
-        <div class="form-group">
-            <label for="select">Choisissez votre spécialité</label>
-            <select class="form-control" id="select" name="speciality" placeholder=""
-                [(ngModel)]="speciality.id" required>
-                <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [disabled]="!testForm.valid">
-                C'est parti!
-            </button>
-        </div>     
-    </form>
-    
- 
+<form class="form-inline my-2 my-lg-0" #testForm=ngForm (ngSubmit)="test()">
+    <div class="form-group">
+        <label for="select">Choisissez votre spécialité</label>
+        <select class="form-control" id="select" name="speciality" placeholder="" [(ngModel)]="speciality.id" required>
+            <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [disabled]="!testForm.valid">
+            C'est parti
+        </button>
+    </div>
+</form>
+
+
 <div class="footer-copyright text-center py-3">
     <h1>Toutes les carrières disponibles au Cameroun</h1>
 </div>
@@ -72,3 +71,123 @@
 
 </div>
 
+<!-- Footer -->
+<footer class="page-footer font-small ">
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4 mx-auto">
+
+                <!-- Content -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">SUP-CAMER</h5>
+                <p>C'est une aplli d'orientation scolaire permettent aux jeunes de mieux s'informer.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-2 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Partenaires</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+        
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                      <p> <img class="img-fluid" src="assets/images/h.png"> Elig-Essono</p> 
+                    </li>
+                    <li>
+                      <p> <img class="img-fluid" src="assets/images/tel.png"> +237697790261</p> 
+                    </li>
+                    <li>
+                      <p> <img class="img-fluid" src="assets/images/mail.png">cefritech11@gmail.com</p> 
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+
+    <div style="background-color: #145259">
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row  d-flex align-items-center">
+
+                <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                    <a href="https://mdbootstrap.com/"> CEFRITECH</a>
+                </div>
+
+                <div class="col-md-4 col-lg-7 text-center text-md-right">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <img class="img-fluid" src="assets/images/f.png">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <img class="img-fluid" src="assets/images/t.png">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <img class="img-fluid" src="assets/images/w.png">
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-sm rgba-white-slight mx-1">
+                                <img class="img-fluid" src="assets/images/g.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+    </div>
+
+</footer>
+<!-- Footer -->
