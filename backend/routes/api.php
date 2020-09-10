@@ -53,3 +53,19 @@ Route::post('/book/register/','BookController@create');
 Route::post('/book/update/','BookController@update');
 Route::post('/book/delete/','BookController@destroy');
 Route::get('/book', 'BookController@getAll');
+
+
+
+
+Route::group([
+
+    'middleware' => 'api',
+
+], function ($router) {
+
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+
+});
