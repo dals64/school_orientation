@@ -25,6 +25,7 @@ import {SpecialityService} from './Services/speciality.service';
 import {MentorService} from './Services/mentor.service';
 import {PageNavigationService} from './Services/pageNavigation.service';
 import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
+import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
     AdminBookComponent,
     AdminMentorComponent,
     AdminSpecialityComponent,
-    SchoolMentorComponent
+    SchoolMentorComponent,
+    AdminAdministratorComponent
   ],
   imports: [
     BrowserModule,

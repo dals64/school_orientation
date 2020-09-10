@@ -9,7 +9,16 @@ export class SignInComponent implements OnInit {
 
   constructor() { }
 
+  public form = {
+    email:null,
+    password:null
+  }
+
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+
   }
 
 }

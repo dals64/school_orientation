@@ -17,6 +17,7 @@ import { AdminMentorComponent } from './admin-mentor/admin-mentor.component';
 import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
 import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
+import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
 
 const routes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
@@ -28,7 +29,8 @@ const routes: Routes = [
     {path:"schools", component:AdminSchoolComponent, outlet:'admin'},
     {path:"mentors", component:AdminMentorComponent, outlet:'admin'},
     {path:"books", component:AdminBookComponent, outlet:'admin'},
-    {path:"outlets", component:AdminOutletComponent, outlet:'admin'}
+    {path:"outlets", component:AdminOutletComponent, outlet:'admin'},
+    {path:"administrators", component: AdminAdministratorComponent, outlet:'admin'}
   ]},
   {path:"home", component:AppBarComponent, children:[
     {path:"", component: AccueilComponent, outlet:'content'},
