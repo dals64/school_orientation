@@ -19,7 +19,7 @@ import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
 import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 
 const routes: Routes = [
-  {path:"", component: AccueilComponent},
+  {path: "", redirectTo: '/home', pathMatch: 'full'},
   {path:"admin", component:SignInComponent},
   {path:"admin/home", component:AdministrationComponent, children:[
     {path:"", component:AdminSpecialityComponent, outlet:'admin'},
@@ -31,7 +31,7 @@ const routes: Routes = [
     {path:"outlets", component:AdminOutletComponent, outlet:'admin'}
   ]},
   {path:"home", component:AppBarComponent, children:[
-    {path:"acceuil", component: AccueilComponent, outlet:'content'},
+    {path:"", component: AccueilComponent, outlet:'content'},
     { path: "careers", component: ListCareersComponent, outlet: 'content' },
     { path: "careerDetail", component: SchoolMentorComponent, outlet:'content', children:[
       {path:"schools", component:ListSchoolsComponent, outlet:'career'},
