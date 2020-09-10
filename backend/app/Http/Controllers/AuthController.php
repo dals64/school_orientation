@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -16,7 +17,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','signup']]);
     }
 
     /**
@@ -86,11 +87,17 @@ class AuthController extends Controller
 
     public function signup(Request $request)
     {
+        $user = new User();
+        $user->password = Hash::make($request->input('password'));
+        $user->email = $request->input('email');
+        $user->name = $request->input('name');
+        
         try {
-            $user = User::create($request->all());
+           $user->save();
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
+       
         return 'success';
     }
 }
