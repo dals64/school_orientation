@@ -1,23 +1,37 @@
 
 #row{
-    padding: 10px;
+    padding: 0px;
+  
 }
 #img{
-    padding: 15px 15px 15px 15px;
-    box-shadow: 10px  5px  10px  5px  #145259;
-    border-radius: 5px;
+  
+    border-radius: 10px;
+    height: 280px;
+    width: 430px;
+    margin:15px;
+    
 }
+#img:hover{
+    box-shadow: 10px 5px 10px 5px #145259;
+}
+
 
 a {
 color: black;
 }
 
 footer{
-  background-color: #9da39d;
+  background-color: lightgrey;
+  font-size: 15px;
+  font-style: normal;
 
 }
 h1{
    padding: 30px;
+   height: 30px;
+   
+   box-shadow: 10px 5px 10px 5px#145259;
+   border-radius: 5000px;
 }
 li{
    margin: 1px 1px 1px 1px;
