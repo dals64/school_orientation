@@ -3,21 +3,24 @@
 
 </div>
 
+<div class="text-center py-3">
 
-<form class="form-inline my-2 my-lg-0" #testForm=ngForm (ngSubmit)="test()">
-    <div class="form-group">
-        <label for="select">Choisissez votre spécialité</label>
-        <select class="form-control" id="select" name="speciality" placeholder="" [(ngModel)]="speciality.id" required>
-            <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [disabled]="!testForm.valid">
-            C'est parti
-        </button>
-    </div>
-</form>
+    <form class="form-center" #testForm=ngForm (ngSubmit)="test()">
+       <h2>
+            <label for="select">Choisissez votre spécialité</label>
+       </h2>
+        <div>
+            <select id="select" name="speciality" placeholder="" [(ngModel)]="speciality.id" required>
+                <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
+            </select>
+        
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [disabled]="!testForm.valid">
+                C'est parti!
+            </button>
+        </div>
+    </form>
 
+</div>
 
 <div class="text-center py-3">
     <h1>Toutes les carrières disponibles au Cameroun</h1>
@@ -25,21 +28,21 @@
 <div class="row">
 
     <div class="col-sm-4 col-md-4 " id="row">
-       
-            <img class="img-fluid" src="assets/images/0.jpg" id="img">
-        
+
+        <img class="img-fluid" src="assets/images/0.jpg" id="img">
+
 
     </div>
     <div class="col-sm-4 col-md-4 portfolio-item" id="row">
-       
-            <img class="img-fluid" src="assets/images/6.jpg" id="img">
-   
+
+        <img class="img-fluid" src="assets/images/6.jpg" id="img">
+
 
     </div>
     <div class="col-sm-4 col-md-4 portfolio-item" id="row">
-       
-            <img class="img-fluid" src="assets/images/5.jpg" id="img">
-      
+
+        <img class="img-fluid" src="assets/images/5.jpg" id="img">
+
     </div>
 </div>
 
@@ -83,7 +86,7 @@
 
                 <!-- Content -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4">SUP-CAMER</h5>
-                <p>C'est une apllication  permettant aux jeunes de mieux s'orienter,s'informer et choisir une carrière.</p>
+                <p>C'est une apllication permettant aux jeunes de mieux s'orienter,s'informer et choisir une carrière.</p>
 
             </div>
             <!-- Grid column -->
@@ -155,7 +158,7 @@
     <div style="background-color: #145259">
 
         <div class="footer-copyright text-center py-1">© 2020 Copyright:CEFRITECH
-           
+
         </div>
     </div>
 </footer>
