@@ -18,11 +18,13 @@ import { AdminBookComponent } from './admin-book/admin-book.component';
 import { AdminOutletComponent } from './admin-outlet/admin-outlet.component';
 import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
+import { AfterSignin } from './Services/after-signin.service';
+import {CanActivate} from '@angular/router';
 
 const routes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
   {path:"admin", component:SignInComponent},
-  {path:"admin/home", component:AdministrationComponent, children:[
+  {path: "admin/home", component: AdministrationComponent, canActivate: [AfterSignin], children:[
     {path:"", component:AdminSpecialityComponent, outlet:'admin'},
     {path: "speciality", component: AdminSpecialityComponent, outlet: 'admin'},
     {path:"careers", component:AdminCareerComponent, outlet:'admin'},

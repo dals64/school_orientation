@@ -24,8 +24,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {SpecialityService} from './Services/speciality.service';
 import {MentorService} from './Services/mentor.service';
 import {PageNavigationService} from './Services/pageNavigation.service';
+import { TokenService } from './Services/token.service';
 import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
+import { AuthService } from './Services/auth.service';
+import { AfterSignin } from './Services/after-signin.service';
 
 @NgModule({
   declarations: [
@@ -59,8 +62,12 @@ import { AdminAdministratorComponent } from './admin-administrator/admin-adminis
   providers: [
     SpecialityService,
     MentorService,
-    PageNavigationService
+    PageNavigationService,
+    TokenService,
+    AuthService,
+    AfterSignin,
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

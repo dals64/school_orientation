@@ -59,6 +59,14 @@
     size: 100px; 
     font-weight: 600; 
     color: white;
-    margin-bottom: 50px;
-    margin-top: 40px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#welcome{
+    font-size: 16px; 
+    font-weight: 400; 
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 5px;
 }

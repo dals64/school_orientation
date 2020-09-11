@@ -19,6 +19,8 @@ export class PageNavigationService {
         name: null
     }
 
+    public admin;
+
     speciality  = {
         id:null,
         name:null
@@ -49,6 +51,14 @@ export class PageNavigationService {
 
     getSchool(){
         return this.school
+    }
+
+    setAdmin(admin){
+        this.admin = admin
+    }
+
+    getAdmin(){
+        return this.admin
     }
 
 }
