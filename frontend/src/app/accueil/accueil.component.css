@@ -27,11 +27,10 @@ footer{
 
 }
 h1{
-   padding: 30px;
-   height: 30px;
-   
+   padding: 10px;
+   height: 60px;
    box-shadow: 10px 5px 10px 5px#145259;
-   border-radius: 5000px;
+   border-radius: 20px;
 }
 li{
    margin: 1px 1px 1px 1px;
