@@ -1,14 +1,14 @@
 <div class="container-fluid">
-    <img class="card-img-top" src="assets/images/1 (1).jpg">
+    <img class="card-img-top" src="assets/images/o.png" id="top">
 
 </div>
 
 <div class="text-center py-3">
 
     <form class="form-center" #testForm=ngForm (ngSubmit)="test()">
-       <h2>
+        <div >
             <label for="select">Choisissez votre spécialité</label>
-       </h2>
+        </div>
         <div>
             <select id="select" name="speciality" placeholder="" [(ngModel)]="speciality.id" required>
                 <option *ngFor="let speciality of specialities" [value]="speciality.id">{{speciality.name}}</option>
