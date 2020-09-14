@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <button class="btn" id="add"> <img src="assets/images/add.png"> Ajouter un livre</button>
+    <button class="btn" id="add" data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter un livre</button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -18,24 +18,118 @@
                 <td>Otto</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td> <a id="image"><img src="assets/images/pencil.png"></a> <a><img src="assets/images/delete.png"></a></td>
+                <td> <a id="image"><img src="assets/images/pencil.png" data-toggle="modal" data-target="#editModal"></a> <a data-toggle="modal" data-target="#deleteModal"><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>
+</div>
+
+<!-- edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark" id="header">
+                <div class="container">
+                    <h3 class="modal-title" id="title">Editer une carrière</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form #editForm="ngForm" (ngSubmit)="edit()">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Nom</label>
+                        <input type="text" class="form-control" name="name" placeholder="" >
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Description</label>
+                        <textarea class="form-control" name="description" placeholder=""></textarea>
+                    </div>
+                
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            style="margin-right: 15px;">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- add Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-dark" id="header">
+                <div class="container">
+                    <h3 class="modal-title" id="title">Nouveau livre</h3>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form #registerForm="ngForm" (ngSubmit)="register()">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" class="form-control" name="title" placeholder="" [(ngModel)]="formData.title"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Auteur</label>
+                        <input type="text" class="form-control" name="autor" placeholder=""
+                            [(ngModel)]="formData.autor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="example">Discipline</label>
+                        <input type="text" class="form-control" name="domain" placeholder="" [(ngModel)]="formData.domain" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInt1">Prix (en FcFA)</label>
+                        <input type="text" class="form-control" name="price" placeholder="" [(ngModel)]="formData.price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Ajouter un fichier</label>
+                        <input type="file" class="form-control-file" id="file" (change)="onFileChange($event)" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            style="margin-right: 15px;">Annuler</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Créer</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container-fluid" style="text-align: center; margin-bottom: 20px;">
+                    Voulez vous vraiment supprimer cet élément?
+                </div>
+                <div class="container-fluid" style="padding-left: 110px;">
+                    <button type="button" class="btn btn-secondary btn-danger" data-dismiss="modal"
+                        style="margin-right: 50px;">Annuler</button>
+                    <button class="btn btn-primary" (click)="delete()">Supprimer</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
