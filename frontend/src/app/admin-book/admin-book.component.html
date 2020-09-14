@@ -6,19 +6,21 @@
                 <th scope="col">#</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Auteur</th>
-                <th scope="col">Prix</th>
+                <th scope="col">Prix (en FCFA)</th>
                 <th scope="col">Discipline</th>
+                <th scope="col">Nom du fichier</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td> <a id="image"><img src="assets/images/pencil.png" data-toggle="modal" data-target="#editModal"></a> <a data-toggle="modal" data-target="#deleteModal"><img src="assets/images/delete.png"></a></td>
+            <tr *ngFor="let book of books">
+                <th scope="row">{{book.id}}</th>
+                <td>{{book.title}}</td>
+                <td>{{book.autor}}</td>
+                <td>{{book.price}}</td>
+                <td>{{book.domain}}</td>
+                <td>{{book.fileName}}</td>
+                <td> <a id="image"><img src="assets/images/pencil.png" data-toggle="modal" data-target="#editModal" (click)="store(book)"></a> <a data-toggle="modal" data-target="#deleteModal" (click)="store(book)"><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>
@@ -31,7 +33,7 @@
         <div class="modal-content">
             <div class="modal-header bg-dark" id="header">
                 <div class="container">
-                    <h3 class="modal-title" id="title">Editer une carrière</h3>
+                    <h3 class="modal-title" id="title">Editer un livre</h3>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -41,19 +43,28 @@
 
                 <form #editForm="ngForm" (ngSubmit)="edit()">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Nom</label>
-                        <input type="text" class="form-control" name="name" placeholder="" >
+                        <label>Titre</label>
+                        <input type="text" class="form-control" name="title" placeholder="" value={{temp.title}} [(ngModel)]="temp.title" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Description</label>
-                        <textarea class="form-control" name="description" placeholder=""></textarea>
+                        <label for="exampleFormControlInput1">Auteur</label>
+                        <input type="text" class="form-control" name="autor" placeholder="" value={{temp.autor}} [(ngModel)]="temp.autor" required>
                     </div>
-                
-
                     <div class="form-group">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                            style="margin-right: 15px;">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <label for="example">Discipline</label>
+                        <input type="text" class="form-control" name="domain" placeholder="" value={{temp.domain}} [(ngModel)]="temp.domain" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInt1">Prix (en FcFA)</label>
+                        <input type="text" class="form-control" name="price" placeholder="" value={{temp.price}} [(ngModel)]="temp.price" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1" style="color:red;">Changer le fichier du livre</label>
+                        <input type="file" class="form-control-file" id="file" name="file" (change)="onFileChange($event)" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 15px;">Annuler</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Enregistrer</button>
                     </div>
                 </form>
 
@@ -99,8 +110,9 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlFile1">Ajouter un fichier</label>
-                        <input type="file" class="form-control-file" id="file" (change)="onFileChange($event)" required>
+                        <input type="file" class="form-control-file" id="file" name="file" (change)="onFileChange($event)" required>
                     </div>
+                    <div class="alert alert-danger" [hidden]="!error">{{error}}</div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                             style="margin-right: 15px;">Annuler</button>

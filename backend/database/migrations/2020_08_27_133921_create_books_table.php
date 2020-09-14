@@ -19,6 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('autor');
             $table->string('price');
             $table->string('domain');
+            $table->string('fileName');
             $table->timestamps();
         });
     }
