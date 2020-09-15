@@ -1,8 +1,16 @@
 
 #top{
-    height: 250px;
+    height: 350px;
     max-width: 5500px; 
 }
+.texte_centrer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+    h2{
+color: red;
+    }
 
 #img{
   
