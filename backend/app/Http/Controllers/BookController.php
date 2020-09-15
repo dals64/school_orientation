@@ -129,9 +129,19 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $book=Book::where('id',$id);
+        $path = 'public/books';
+        Storage::disk('public')->delete('/books/'.$book->fileName);
+        try {
+            $book->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
     public function getAll(){

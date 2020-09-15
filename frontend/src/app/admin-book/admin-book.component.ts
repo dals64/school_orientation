@@ -70,7 +70,19 @@ export class AdminBookComponent implements OnInit {
   }
 
   delete(){
-    
+    console.log(this.temp)
+    axios.post('http://localhost:8000/api/book/delete/', this.temp).then(function (response) {
+      if (response.data = 'success') {
+        alert('Suppression du livre réussie')
+      } else {
+        alert("erreur lors de la suppression, veuillez reéssayer")
+      }
+      console.log(response.data)
+    }).catch(function (error) {
+      console.log(error);
+      alert("erreur lors de connexion au serveur, veuillez reéssayer")
+    });
+  
   }
 
   store(book){

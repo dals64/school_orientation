@@ -1,1 +1,21 @@
-<p>books works!</p>
+<div class="row">
+    <div class="card item row" style="width: 13.5rem;" id="book" *ngFor="let book of books" (click)="openBook(book)">
+        <img class="card-img-top" src="assets/images/avatar.png" alt="Card image cap">
+        <div class="card-body" id="body">
+            <div id="title">
+                <h3 class="card-title">{{book.title}}</h3>
+            </div>
+            <div class="card-text">
+                <div>
+                    Auteur : {{book.autor}}
+                </div>
+                <div>
+                    Discipline : {{book.domain}}
+                </div>
+                <div>
+                    Prix (en FCFA) : {{book.price}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

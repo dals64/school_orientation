@@ -1,6 +1,7 @@
 #mentor{
     box-shadow: 3px 2px 3px 3px rgb(237, 245, 239);
     border-radius: 10px;
+    margin: 7px;
 }
 
 #mentor:hover{
@@ -15,17 +16,4 @@ h3{
 #categorie{
     margin-bottom: 50px;
     margin-top: 10px;
-}
-
-.tem{
-    display: table;
-
-}
-
-.slider {
-  width: 100vw;
-  max-width: 100%;
-  white-space: nowrap;
-  background-color: orange;
-  display: table;
 }
