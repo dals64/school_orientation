@@ -1,7 +1,9 @@
-
-#top{
-    height: 250px;
-    max-width: 5500px; 
+#barner{
+    height: 500px;
+    background-image: url('../../assets/images/barner.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #img{
@@ -40,5 +42,6 @@ li{
 select{
     width: 100px;
     height: 35px;
+    margin-right: 10px;
 }
 
