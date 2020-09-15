@@ -29,6 +29,7 @@ import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
 import { AuthService } from './Services/auth.service';
 import { AfterSignin } from './Services/after-signin.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AfterSignin } from './Services/after-signin.service';
     AdminMentorComponent,
     AdminSpecialityComponent,
     SchoolMentorComponent,
-    AdminAdministratorComponent
+    AdminAdministratorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
