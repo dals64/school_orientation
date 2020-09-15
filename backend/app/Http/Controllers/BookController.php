@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,8 +16,17 @@ class BookController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        $book = Book::find($request->input('id'));
+        $name  = $book->fileName;
+        //return response()->file('storage/app/public/books/'.$name);
+        $path = storage_path("app/public/books/".$name);
+
+        return Response::make(file_get_contents($path), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename="' . $name . '"'
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,38 +61,8 @@ class BookController extends Controller
         return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -93,31 +73,40 @@ class BookController extends Controller
      */
     public function update(Request $request)
     {
-        $book = Book::where('id',$request->id);
+        
+        $book = Book::find($request->id);
         if ($request->hasFile('myFile')) {
-            $path = 'public/books';
-            Storage::delete($path.'/'.$book->fileName);
+
+            $path = 'public/books/'.$book->fileName;
+            Storage::delete($path);
             $file = $request->file('myFile');
             $name = $file->getClientOriginalName();
-            $file->storeAs($path,$name);
+            $file->storeAs('public/books/',$name);
 
             $book->autor = $request->autor;
             $book->domain = $request->domain;
             $book->price = $request->price;
             $book->title = $request->title;
             $book->fileName = $name;
+
+            try {
+                $book->save();
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+
         }else{
+
             $book->autor = $request->autor;
             $book->domain = $request->domain;
             $book->price = $request->price;
-            $book->title = $request->title;            
+            $book->title = $request->title; 
+            try {
+                $book->save();
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
         }
-        
-        try {
-            $book->save();
-        } catch (ModelNotFoundException $exception) {
-            return back()->withError($exception->getMessage())->withInput();
-        }  
 
         return 'success';
         
@@ -132,9 +121,8 @@ class BookController extends Controller
     public function destroy(Request $request)
     {
         $id = $request->input('id');
-        $book=Book::where('id',$id);
-        $path = 'public/books';
-        Storage::disk('public')->delete('/books/'.$book->fileName);
+        $book=Book::find($id);
+        Storage::delete('public/books/'.$book->fileName);
         try {
             $book->delete();
         } catch (ModelNotFoundException $exception) {

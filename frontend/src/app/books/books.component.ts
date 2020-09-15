@@ -20,7 +20,10 @@ export class BooksComponent implements OnInit {
   }
 
   openBook(book){
-    console.log(book)
+    this.http.post('http://localhost:8000/api/book/index/', book).subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
   }
 
 }

@@ -90,26 +90,25 @@ export class AdminBookComponent implements OnInit {
   }
 
   edit(){
-    const uploadData = new FormData();
+    const data = new FormData();
     if(this.file !== undefined){
-      uploadData.append('myFile', this.file, this.file.name)
-      uploadData.append('id', this.temp.id)
-      uploadData.append('title', this.temp.title)
-      uploadData.append('autor', this.temp.autor)
-      uploadData.append('price', this.temp.price)
-      uploadData.append('domain', this.temp.domain)
+      data.append('myFile', this.file, this.file.name)
+      data.append('id', this.temp.id)
+      data.append('title', this.temp.title)
+      data.append('autor', this.temp.autor)
+      data.append('price', this.temp.price)
+      data.append('domain', this.temp.domain)
     }else{
-      uploadData.append('id', this.temp.id)
-      uploadData.append('title', this.temp.title)
-      uploadData.append('autor', this.temp.autor)
-      uploadData.append('price', this.temp.price)
-      uploadData.append('domain', this.temp.domain)
+      data.append('id', this.temp.id)
+      data.append('title', this.temp.title)
+      data.append('autor', this.temp.autor)
+      data.append('price', this.temp.price)
+      data.append('domain', this.temp.domain)
     }
 
-    console.log(this.temp)
-
-    axios.post('http://localhost:8000/api/book/update/', uploadData).then(function (response) {
-      if (response.data = 'success') {
+  
+    axios.post('http://localhost:8000/api/book/update/', data).then(function (response) {
+      if (response.data === 'success') {
         alert('modification du livre réussie')
       } else {
         alert("erreur lors de la modification, veuillez reéssayer")

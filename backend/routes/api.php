@@ -52,6 +52,7 @@ Route::get('/mentor', 'MentorController@getAll');
 Route::post('/book/register/','BookController@create');
 Route::post('/book/update/','BookController@update');
 Route::post('/book/delete/','BookController@destroy');
+Route::post('/book/index/','BookController@index');
 Route::get('/book', 'BookController@getAll');
 
 
