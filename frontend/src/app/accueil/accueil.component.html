@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div>
     <img class="card-img-top" src="assets/images/c.jpg" id="top">
 
 </div>
@@ -7,7 +7,7 @@
 
     <form class="form-center" #testForm=ngForm (ngSubmit)="test()">
         <div>
-            <label for="select">Choisissez votre spécialité</label>
+            <label for="select" style="font-size: 18px;" >Choisissez votre spécialité</label>
         </div>
         <div>
             <select id="select" name="speciality" placeholder="" [(ngModel)]="speciality.id" required>

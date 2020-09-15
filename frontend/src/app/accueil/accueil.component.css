@@ -1,19 +1,18 @@
 
 #top{
     height: 250px;
-    max-width: 5500px;
- 
+    max-width: 5500px; 
 }
+
 #img{
   
-    border-radius: 10px;
     height: 280px;
     width: 430px;
-    margin:15px;
+    margin:10px;
     
 }
 #img:hover{
-    box-shadow: 10px 5px 10px 5px #145259;
+    box-shadow: 3px 3px 3px 3px #145259;
 }
 
 
@@ -25,8 +24,8 @@ color: black;
 h1{
    padding: 10px;
    height: 60px;
-   box-shadow: 10px 5px 10px 5px#145259;
-   border-radius: 20px;
+   box-shadow: 3px 2px 3px 2px#145259;
+   border-radius: 10px;
 }
 h2{
     padding: 0px;
