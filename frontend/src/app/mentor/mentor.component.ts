@@ -39,10 +39,15 @@ export class MentorComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private service: PageNavigationService) { }
 
   public list;
+  loading = false;
+  load1 = true;
 
   ngOnInit(): void {
     this.http.post('http://localhost:8000/api/career/mentors/', this.service.getCareer()).subscribe(
-      data => this.list = data,
+      data => {
+        this.list = data,
+        this.load1 = false
+      },
       error => console.log(error)
     )
   }

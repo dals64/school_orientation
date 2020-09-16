@@ -24,7 +24,9 @@
         </ng-template>
     </owl-carousel-o>
 </div> -->
-
+<div class="loader" *ngIf="loading || load1; else showBlock">
+    <img src="assets/images/Spinner-1s-237px.gif" alt="">
+</div>
 <div class="row">
     <div class="card item row" style="width: 13.5rem;" id="mentor" *ngFor="let item of list">
         <img class="card-img-top" src="assets/images/avatar.png" alt="Card image cap">

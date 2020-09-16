@@ -15,13 +15,19 @@ export class OutletsComponent implements OnInit {
 
   public school;
 
+  loading = false;
+  load1 = true;
+
   constructor(private http : HttpClient, private service : PageNavigationService) { }
 
   ngOnInit(): void {
     this.career = this.service.getCareer()
     this.school = this.service.getSchool()
     this.http.post('http://localhost:8000/api/school/outlets/',this.service.getSchool()).subscribe(
-      data => this.list = data,
+      data => {
+        this.list = data
+        this.load1 = false
+      },
       error => console.log(error)
     )
   }

@@ -6,6 +6,9 @@
 <div class="container-fluid" style="text-align: center; margin-top:20px">
     <h1>Liste des débouchées associées</h1>
 </div>
+<div class="loader" *ngIf="loading || load1; else showBlock">
+    <img src="assets/images/Spinner-1s-237px.gif" alt="">
+</div>
 <div class="mt-4 col-8 offset-2" id="singleschool" *ngFor="let item of list">
     <h4>{{item.name}}</h4>
     <p>{{item.description}}</p>

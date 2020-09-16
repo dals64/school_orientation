@@ -4,3 +4,8 @@
     width: 100%;
     z-index: 8;
 }
+
+#container{
+    margin-top: 50px;
+    min-height: 800px;
+}

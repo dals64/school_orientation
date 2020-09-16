@@ -11,10 +11,16 @@ export class BooksComponent implements OnInit {
   constructor(private http : HttpClient) { }
 
   public books;
+  loading = false;
+  load1 = true;
+
 
   ngOnInit(): void {
     this.http.get('http://localhost:8000/api/book').subscribe(
-      data => this.books = data,
+      data => {
+        this.books = data
+        this.load1 = false
+      },
       error => console.log(error)
     )
   }

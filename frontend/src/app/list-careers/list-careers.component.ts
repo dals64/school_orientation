@@ -18,11 +18,17 @@ export class ListCareersComponent implements OnInit {
 
   public nameSpec;
 
+  loading = false;
+  load1 = true;
+
   ngOnInit(): void {
     this.speciality = this.service.getSpeciality();
     
     this.http.post('http://localhost:8000/api/speciality/careers/', this.service.getSpeciality()).subscribe(
-      data => this.list = data,
+      data => {
+        this.list = data
+        this.load1 = false
+      },
       error => console.log(error)
     );
   }

@@ -20,6 +20,7 @@ import { SchoolMentorComponent } from './school-mentor/school-mentor.component';
 import { AdminAdministratorComponent } from './admin-administrator/admin-administrator.component';
 import { AfterSignin } from './Services/after-signin.service';
 import {CanActivate} from '@angular/router';
+import { FourOfourComponent } from './four-ofour/four-ofour.component';
 
 const routes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
@@ -44,6 +45,9 @@ const routes: Routes = [
     { path: "outlets", component: OutletsComponent, outlet: 'content' },
     { path: "books", component: BooksComponent, outlet: 'content' },
   ]},
+
+
+  {path:'**', component:FourOfourComponent}
 ];
 
 @NgModule({

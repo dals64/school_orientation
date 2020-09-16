@@ -11,12 +11,17 @@ import { PageNavigationService } from '../Services/pageNavigation.service';
 export class ListSchoolsComponent implements OnInit {
 
   public list;
+  loading = false;
+  load1 = true;
 
   constructor( private http : HttpClient, private router : Router, private service : PageNavigationService) { }
 
   ngOnInit(): void {
     this.http.post('http://localhost:8000/api/career/schools/', this.service.getCareer()).subscribe(
-      data => this.list = data,
+      data => {
+        this.list = data
+        this.load1 = false
+      },
       error => console.log(error)
     )
   }

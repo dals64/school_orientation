@@ -1,3 +1,6 @@
+<div class="loader" *ngIf="loading || load1; else showBlock">
+    <img src="assets/images/Spinner-1s-237px.gif" alt="">
+</div>
 <div class="row">
     <div class="card item row" style="width: 13.5rem;" id="book" *ngFor="let book of books" (click)="openBook(book)">
         <img class="card-img-top" src="assets/images/pdf.png" alt="Card image cap">
