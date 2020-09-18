@@ -31,6 +31,7 @@ import { AuthService } from './Services/auth.service';
 import { AfterSignin } from './Services/after-signin.service';
 import { FooterComponent } from './footer/footer.component';
 import { FourOfourComponent } from './four-ofour/four-ofour.component';
+import { AdminPersonnalityComponent } from './admin-personnality/admin-personnality.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FourOfourComponent } from './four-ofour/four-ofour.component';
     SchoolMentorComponent,
     AdminAdministratorComponent,
     FooterComponent,
-    FourOfourComponent
+    FourOfourComponent,
+    AdminPersonnalityComponent
   ],
   imports: [
     BrowserModule,

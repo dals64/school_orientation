@@ -21,6 +21,7 @@ import { AdminAdministratorComponent } from './admin-administrator/admin-adminis
 import { AfterSignin } from './Services/after-signin.service';
 import {CanActivate} from '@angular/router';
 import { FourOfourComponent } from './four-ofour/four-ofour.component';
+import { AdminPersonnalityComponent } from './admin-personnality/admin-personnality.component';
 
 const routes: Routes = [
   {path: "", redirectTo: '/home', pathMatch: 'full'},
@@ -33,6 +34,7 @@ const routes: Routes = [
     {path:"mentors", component:AdminMentorComponent, outlet:'admin'},
     {path:"books", component:AdminBookComponent, outlet:'admin'},
     {path:"outlets", component:AdminOutletComponent, outlet:'admin'},
+    {path:"personnalities", component: AdminPersonnalityComponent, outlet: 'admin'},
     {path:"administrators", component: AdminAdministratorComponent, outlet:'admin'}
   ]},
   {path:"home", component:AppBarComponent, children:[

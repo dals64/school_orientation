@@ -1,0 +1,20 @@
+#add{
+    background-color: white;
+    border: none;
+    margin-bottom: 10px;
+}
+
+#add:hover{
+    box-shadow: 1px 1px 3px 1px green;
+}
+
+#image{
+    margin-right: 40px;
+}
+
+#title{
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
