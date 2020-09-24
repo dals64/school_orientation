@@ -6,6 +6,7 @@ use App\Book;
 use Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+require_once $path = base_path('vendor/pear/http_request2/Http/Request2.php');
 
 class BookController extends Controller
 {
@@ -15,9 +16,59 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
         $book = Book::find($request->input('id'));
         $name  = $book->fileName;
+
+
+        //paiement mobile mobile money
+
+        require_once 'HTTP/Request2.php';
+
+        $request = new Http_Request2('https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay');
+        $url = $request->getUrl();
+
+        $headers = array(
+                // Request headers
+                'Authorization' => '',
+                'X-Callback-Url' => '',
+                'X-Reference-Id' => '',
+                'X-Target-Environment' => '',
+                'Content-Type' => 'application/json',
+                'Ocp-Apim-Subscription-Key' => '{subscription key}',
+            );
+
+        $body = array(
+            
+        );
+
+        $request->setHeader($headers);
+
+        $parameters = array(
+                // Request parameters
+            );
+
+        $url->setQueryVariables($parameters);
+
+        $request->setMethod(HTTP_Request2::METHOD_POST);
+
+        // Request body
+        $request->setBody($body);
+
+        try {
+            $response = $request->send();
+            echo $response->getBody();
+        } catch (HttpException $ex) {
+            echo $ex;
+        }
+
+
+
+
+
+
+
+
         //return response()->file('storage/app/public/books/'.$name);
         $path = storage_path("app/public/books/".$name);
 
