@@ -9,6 +9,7 @@ import { OutletsComponent } from './outlets/outlets.component';
 import { AppComponent } from './app.component';
 import { MentorComponent } from './mentor/mentor.component';
 import { BooksComponent } from './books/books.component';
+import { TestComponent } from './test/test.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { AdminSpecialityComponent } from './admin-speciality/admin-speciality.component';
 import { AdminCareerComponent } from './admin-career/admin-career.component';
@@ -39,6 +40,7 @@ const routes: Routes = [
   ]},
   {path:"home", component:AppBarComponent, children:[
     {path:"", component: AccueilComponent, outlet:'content'},
+    {path:"test", component: TestComponent, outlet:'test'},
     { path: "careers", component: ListCareersComponent, outlet: 'content' },
     { path: "careerDetail", component: SchoolMentorComponent, outlet:'content', children:[
       {path:"schools", component:ListSchoolsComponent, outlet:'career'},

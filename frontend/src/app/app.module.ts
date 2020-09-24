@@ -32,6 +32,7 @@ import { AfterSignin } from './Services/after-signin.service';
 import { FooterComponent } from './footer/footer.component';
 import { FourOfourComponent } from './four-ofour/four-ofour.component';
 import { AdminPersonnalityComponent } from './admin-personnality/admin-personnality.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { AdminPersonnalityComponent } from './admin-personnality/admin-personnal
     AdminAdministratorComponent,
     FooterComponent,
     FourOfourComponent,
-    AdminPersonnalityComponent
+    AdminPersonnalityComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
