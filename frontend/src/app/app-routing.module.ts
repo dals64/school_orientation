@@ -40,7 +40,7 @@ const routes: Routes = [
   ]},
   {path:"home", component:AppBarComponent, children:[
     {path:"", component: AccueilComponent, outlet:'content'},
-    {path:"test", component: TestComponent, outlet:'test'},
+    {path:"test", component: TestComponent, outlet:'content'},
     { path: "careers", component: ListCareersComponent, outlet: 'content' },
     { path: "careerDetail", component: SchoolMentorComponent, outlet:'content', children:[
       {path:"schools", component:ListSchoolsComponent, outlet:'career'},
