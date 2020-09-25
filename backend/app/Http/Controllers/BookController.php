@@ -22,7 +22,7 @@ class BookController extends Controller
 
 
         //paiement mobile mobile money
-
+        /*
         require_once 'HTTP/Request2.php';
 
         $request = new Http_Request2('https://sandbox.momodeveloper.mtn.com/collection/v1_0/requesttopay');
@@ -60,7 +60,7 @@ class BookController extends Controller
             echo $response->getBody();
         } catch (HttpException $ex) {
             echo $ex;
-        }
+        }*/
 
 
 
