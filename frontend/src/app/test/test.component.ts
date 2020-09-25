@@ -103,6 +103,8 @@ export class TestComponent implements OnInit {
       this.results[1] = second['personnality']
     }
 
+    console.log(this.results)
+
   }
 
 }
