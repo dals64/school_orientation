@@ -10,745 +10,744 @@
         la
         ou les deux propositions(au maximum)qui vous correspond(ent)le mieux.
     </div>
+</div>
+<div class="row justify-content-center">
 
-    <div class="row justify-content-center">
 
+    <form #formTest=ngForm (ngSubmit)="onSubmit()">
 
-        <form #formTest=ngForm (ngSubmit)="onSubmit()">
+        <div>
 
-            <div>
-
-                <div id="test" style="font-size: 18px "> 1) Vous avez une heure à perdre.A quoi l'occupez-vouz?</div>
-
-                <div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[0]">
-                        <label class="form-check-label">Je bricole(fabrication des pétits objets,jardinier)</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[0]">
-                        <label class="form-check-label"> Je me plonge dans un bouquin</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[0]">
-                        <label class="form-check-label">Je fais mes comptes</label>
-                    </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[0]">
-                        <label class="form-check-label">Je sors pour voir du monde</label>
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                                [(ngModel)]="rationnel[0]"> Je médite
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                                [(ngModel)]="concepteur[0]"> Je dessine
-                        </label>
-                    </div>
-
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                                [(ngModel)]="musicien[0]"> Je joue d'un instrument
-                        </label>
-                    </div>
-                </div>
-            </div>
+            <div id="test" style="font-size: 18px "> 1) Vous avez une heure à perdre.A quoi l'occupez-vouz?</div>
 
             <div>
-                <div id="test" style="font-size: 18px">2) Durant un trajet en taxi ou en bus</div>
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[1]"> Je lis le quotidien du journal
-                    </label>
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[0]">
+                    <label class="form-check-label">Je bricole(fabrication des pétits objets,jardinier)</label>
                 </div>
+
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[1]"> Je regarde la manière dont les voyageurs sont habillés
-                    </label>
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[0]">
+                    <label class="form-check-label"> Je me plonge dans un bouquin</label>
                 </div>
+
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[1]"> Je me dis que rien ne vaut la marche à pieds
-                    </label>
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[0]">
+                    <label class="form-check-label">Je fais mes comptes</label>
                 </div>
+
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[1]">Je cherche à entrer en contact avec mon voisin(e)
-                    </label>
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[0]">
+                    <label class="form-check-label">Je sors pour voir du monde</label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[1]"> Je suis scotché à mon walkman
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[1]"> Je calcule le temps moyen entre chaque arret
-                    </label>
-                </div>
+
                 <div class="form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[1]"> J'observe les voyageurs et je cherche à deviner leur pensée
+                            [(ngModel)]="rationnel[0]"> Je médite
                     </label>
                 </div>
-            </div>
-            <div>
-                <div id="test" style="font-size: 18px"> 3) Si vous étiez un lieu, vouz seriez</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[2]"> Un laboratoire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[2]"> Un stade
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[2]">Une salle de concert
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[2]">Un atelier
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[2]"> Un troquet
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[2]"> Une foret
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[2]"> Une bibliothèque
-                    </label>
-                </div>
-            </div>
-            <div>
-                <div id="test" style="font-size: 18px">4) Mon média préféré c'est</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[3]"> RFI
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[3]"> B.B.C
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[3]"> C.N.N
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[3]">AFRICA N1
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="raionnel"
-                            [(ngModel)]="rationnel[3]"> CRTV
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[3]"> WASHINGTON POST
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[3]"> CFI-TV5
-                    </label>
-                </div>
-            </div>
-            <div>
-                <div id="test" style="font-size: 18px">5) Si vous étiez un personnage historique vous aimeriez être.....
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="aa" value="rationnel"
-                            [(ngModel)]="rationnel[4]"> Nelson Mandela
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="aa" value="concepteur"
-                            [(ngModel)]="concepteur[4]"> Martin Luther King
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[4]">Mahatma Ghanti
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[4]">Albert Einstein
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[4]"> Bob Marley
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[4]">Roger Milla
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[4]"> Cheich Modibo Diarra
-                    </label>
-                </div>
-            </div>
-            <div>
-                <div id="test" style="font-size: 18px">6) Si vous étiez une femme célèbre,vous aimeriez etre.....</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[5]"> Myriam Makeba
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[5]"> Marie Curie
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[5]"> Chantal Biya
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[5]">Marie Jose Perec
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[5]"> Mère Teresa
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[5]">Hillary Clinton
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[5]">Naomi Compelle
-                    </label>
-                </div>
-            </div>
 
-            <div>
-                <div id="test" style="font-size: 18px">7) Dans un journal, que regardez vous en priorité</div>
                 <div class="form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[6]"> Les photos
+                            [(ngModel)]="concepteur[0]"> Je dessine
                     </label>
                 </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[6]"> Les pages "people"
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[6]"> Les débats de société
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[6]">Les informations sur les découvertes scientifiques
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[6]"> Jeu de mots
-                    </label>
-                </div>
+
                 <div class="form-check">
                     <label class="form-check-label">
                         <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[6]">Les pages cultures
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[6]">Les reportages
+                            [(ngModel)]="musicien[0]"> Je joue d'un instrument
                     </label>
                 </div>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">8) Enfant,vous adoriez....</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[7]">Passer des heures à lire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[7]"> Faire des jeux de construction
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[7]"> Sauter à la corde
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[7]">Participer à des gouters d'anniversaire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[7]"> Regarder des documentaires
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[7]">Découvrir des endroits secrets
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[7]">Chanter
-                    </label>
-                </div>
+        </div>
+
+        <div>
+            <div id="test" style="font-size: 18px">2) Durant un trajet en taxi ou en bus</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[1]"> Je lis le quotidien du journal
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">9) Au cinema vous etes sensible.....</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[8]"> Au scénario
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[8]">A l'action
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[8]"> A la beauté des images
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[8]">A la force des dialogues
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[8]"> A la musique
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[8]">Au jeu des acteurs
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[8]">A la psychologie des acteurs
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[1]"> Je regarde la manière dont les voyageurs sont habillés
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">10) comment mémoriser vous</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien "
-                            [(ngModel)]="musicien[9]"> En écoutant
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[9]">En étant logique
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[9]"> En visualisant
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[9]">En marchant
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[9]"> En parlant
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[9]">En me concentrant sur mes émotions
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[9]">En lisant et relisant
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[1]"> Je me dis que rien ne vaut la marche à pieds
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">11) Quel est l'insulte qui te vexe le plus?</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[10]"> T'as pas le sens du rythme
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[10]">Tu te crois le nombril du monde
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[10]"> T'es maniaque
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[10]">T'as le gout des chiottes
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[10]"> T'as de deux mains gauches
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[10]">Tu te prends pour mère Teresa
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[10]">Tes blagues sont ringardes
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[1]">Je cherche à entrer en contact avec mon voisin(e)
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">12) Que pourrait-o dire de vous?</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[11]">Que je cartésien
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[11]">Que je suis adroit
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[11]"> Que j'ai le tchatche
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[11]">Que j'ai l'oreille
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[11]"> Que je suis inventif
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[11]">Que je suis refléchi
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicstif"
-                            [(ngModel)]="communicatif[11]">Que je suis serviable
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[1]"> Je suis scotché à mon walkman
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">13) Dans votre établissement scolaire,quelle est la matière dans
-                    laquelle vous excellez particulièrement?
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[12]"> La littérature, les langues ou l'histoire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[12]">Les épreuves orales ou exposés
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[12]"> La géométrie ou la géographie
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[12]">La musique ou la couture
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[12]"> Les mathématiques,sciences naturelles ou la physique
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[12]">Les travaux manuels ou techniques e le sport
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[12]">La philosophie
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[1]"> Je calcule le temps moyen entre chaque arret
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">14) Dans laquelle de ces qualités vous reconnaissez-vous?</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[13]"> Je me repère facilement dans millieu inconnu
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[13]">Je raisonne facilement dans l'abstrait
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[13]"> Je ne m'ennuie jamais
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[13]">J'ai du vocabulaire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[13]"> J'arrive à distinguer tous les instruments de musique d'un
-                        morceau
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[13]">Je règle un appareil de musique sans lire le mode d'emploi
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[13]">Je lie facilement connaissance
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[1]"> J'observe les voyageurs et je cherche à deviner leur pensée
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">15) Quelle est votre manie</div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[14]"> Je ne peux pas m'empecher de faire des jeux de mots
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[14]">J'accorde trop d'importance à l'apparence
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[14]"> J'essaie toujours de marchander ou de faire de la feymania
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="musicien"
-                            [(ngModel)]="musicien[14]">Je sifflote ou frdonne sans cesse
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[14]"> J'ai toujours besoin de toucher
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[14]">J'analyse mes reves
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[14]">Je cherche une explication rationnelle à tout
-                    </label>
-                </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px"> 3) Si vous étiez un lieu, vouz seriez</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[2]"> Un laboratoire
+                </label>
             </div>
-            <div>
-                <div id="test" style="font-size: 18px">16) Vous arrivez dans une soirée d'emblée </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="ami"> Vous etes déja là,
-                        c'est vous qui l'organisez
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
-                            [(ngModel)]="reflechi[15]">Vous restez dans votre coin
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
-                            [(ngModel)]="rationnel[15]">Vous vous asseyez pour discuter
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
-                            [(ngModel)]="joueur_de_mots[15]">Vous remplacez le Dj
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
-                            [(ngModel)]="concepteur[15]"> Vous faites le tour du propriétaire
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="corporel"
-                            [(ngModel)]="corporel[15]">Vous dansez
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
-                            [(ngModel)]="communicatif[15]">Vous mettez de l'ambiance
-                    </label>
-                </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[2]"> Un stade
+                </label>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top: 40px;">Envoyer</button>
-        </form>
-    </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[2]">Une salle de concert
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[2]">Un atelier
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[2]"> Un troquet
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[2]"> Une foret
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[2]"> Une bibliothèque
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">4) Mon média préféré c'est</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[3]"> RFI
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[3]"> B.B.C
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[3]"> C.N.N
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[3]">AFRICA N1
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="raionnel"
+                        [(ngModel)]="rationnel[3]"> CRTV
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[3]"> WASHINGTON POST
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[3]"> CFI-TV5
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">5) Si vous étiez un personnage historique vous aimeriez être.....
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="aa" value="rationnel"
+                        [(ngModel)]="rationnel[4]"> Nelson Mandela
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="aa" value="concepteur"
+                        [(ngModel)]="concepteur[4]"> Martin Luther King
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[4]">Mahatma Ghanti
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[4]">Albert Einstein
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[4]"> Bob Marley
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[4]">Roger Milla
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[4]"> Cheich Modibo Diarra
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">6) Si vous étiez une femme célèbre,vous aimeriez etre.....</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[5]"> Myriam Makeba
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[5]"> Marie Curie
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[5]"> Chantal Biya
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[5]">Marie Jose Perec
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[5]"> Mère Teresa
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[5]">Hillary Clinton
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[5]">Naomi Compelle
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <div id="test" style="font-size: 18px">7) Dans un journal, que regardez vous en priorité</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[6]"> Les photos
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[6]"> Les pages "people"
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[6]"> Les débats de société
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[6]">Les informations sur les découvertes scientifiques
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[6]"> Jeu de mots
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[6]">Les pages cultures
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[6]">Les reportages
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">8) Enfant,vous adoriez....</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[7]">Passer des heures à lire
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[7]"> Faire des jeux de construction
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[7]"> Sauter à la corde
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[7]">Participer à des gouters d'anniversaire
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[7]"> Regarder des documentaires
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[7]">Découvrir des endroits secrets
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[7]">Chanter
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">9) Au cinema vous etes sensible.....</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[8]"> Au scénario
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[8]">A l'action
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[8]"> A la beauté des images
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[8]">A la force des dialogues
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[8]"> A la musique
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[8]">Au jeu des acteurs
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[8]">A la psychologie des acteurs
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">10) comment mémoriser vous</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien "
+                        [(ngModel)]="musicien[9]"> En écoutant
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[9]">En étant logique
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[9]"> En visualisant
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[9]">En marchant
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[9]"> En parlant
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[9]">En me concentrant sur mes émotions
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[9]">En lisant et relisant
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">11) Quel est l'insulte qui te vexe le plus?</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[10]"> T'as pas le sens du rythme
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[10]">Tu te crois le nombril du monde
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[10]"> T'es maniaque
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[10]">T'as le gout des chiottes
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[10]"> T'as de deux mains gauches
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[10]">Tu te prends pour mère Teresa
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[10]">Tes blagues sont ringardes
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">12) Que pourrait-o dire de vous?</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[11]">Que je cartésien
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[11]">Que je suis adroit
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[11]"> Que j'ai le tchatche
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[11]">Que j'ai l'oreille
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[11]"> Que je suis inventif
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[11]">Que je suis refléchi
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicstif"
+                        [(ngModel)]="communicatif[11]">Que je suis serviable
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">13) Dans votre établissement scolaire,quelle est la matière dans
+                laquelle vous excellez particulièrement?
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[12]"> La littérature, les langues ou l'histoire
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[12]">Les épreuves orales ou exposés
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[12]"> La géométrie ou la géographie
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[12]">La musique ou la couture
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[12]"> Les mathématiques,sciences naturelles ou la physique
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[12]">Les travaux manuels ou techniques e le sport
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[12]">La philosophie
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">14) Dans laquelle de ces qualités vous reconnaissez-vous?</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[13]"> Je me repère facilement dans millieu inconnu
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[13]">Je raisonne facilement dans l'abstrait
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[13]"> Je ne m'ennuie jamais
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[13]">J'ai du vocabulaire
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[13]"> J'arrive à distinguer tous les instruments de musique d'un
+                    morceau
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[13]">Je règle un appareil de musique sans lire le mode d'emploi
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[13]">Je lie facilement connaissance
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">15) Quelle est votre manie</div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[14]"> Je ne peux pas m'empecher de faire des jeux de mots
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[14]">J'accorde trop d'importance à l'apparence
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[14]"> J'essaie toujours de marchander ou de faire de la feymania
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="musicien"
+                        [(ngModel)]="musicien[14]">Je sifflote ou frdonne sans cesse
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[14]"> J'ai toujours besoin de toucher
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[14]">J'analyse mes reves
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[14]">Je cherche une explication rationnelle à tout
+                </label>
+            </div>
+        </div>
+        <div>
+            <div id="test" style="font-size: 18px">16) Vous arrivez dans une soirée d'emblée </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="ami"> Vous etes déja là,
+                    c'est vous qui l'organisez
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="reflechi"
+                        [(ngModel)]="reflechi[15]">Vous restez dans votre coin
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="rationnel"
+                        [(ngModel)]="rationnel[15]">Vous vous asseyez pour discuter
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="joueur_de_mots"
+                        [(ngModel)]="joueur_de_mots[15]">Vous remplacez le Dj
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="concepteur"
+                        [(ngModel)]="concepteur[15]"> Vous faites le tour du propriétaire
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="corporel"
+                        [(ngModel)]="corporel[15]">Vous dansez
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="origine" value="communicatif"
+                        [(ngModel)]="communicatif[15]">Vous mettez de l'ambiance
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 40px;">Envoyer</button>
+    </form>
 </div>
