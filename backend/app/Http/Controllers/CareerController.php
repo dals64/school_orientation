@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Career;
 use App\School;
 Use App\Mentor;
+Use App\Personnality;
+Use App\Speciality;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CareerController extends Controller
 {
@@ -125,5 +128,16 @@ class CareerController extends Controller
     public function getMentors(Request $request){
         $career = Career::find($request->input('id'));
         return $career->mentors()->getResults();
+    }
+
+    public function filter(Request $request){
+        $spec = Speciality::find($request->input('speciality'));
+        return $spec->careers()->getResults();
+
+        $pers = Personnality::where('name',$request->input('name'));
+
+        $result1 = DB::table('career_speciality')->select('career_id')->where('speciality_id','<>',$spec->id);
+        $result2 = DB::table('career_personnality')->select('career_id')->where('spers_id', '<>', $pers->id);
+        
     }
 }

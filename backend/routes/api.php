@@ -37,6 +37,7 @@ Route::post('/career/update/', 'CareerController@update');
 Route::post('/career/schools/', 'CareerController@getSchools');
 Route::post('/career/mentors/', 'CareerController@getMentors');
 Route::post('/career/delete/', 'CareerController@destroy');
+Route::post('/career/filter/', 'CareerController@filter');
 Route::get('/career', 'CareerController@getAll');
 
 Route::post('/outlet/register/','OutletController@create');
@@ -54,6 +55,11 @@ Route::post('/book/update/','BookController@update');
 Route::post('/book/delete/','BookController@destroy');
 Route::post('/book/index/','BookController@index');
 Route::get('/book', 'BookController@getAll');
+
+Route::post('/personnality/register/', 'PersonnalityController@create');
+Route::post('/personnality/update/', 'PersonnalityController@update');
+Route::post('/personnality/delete/', 'PersonnalityController@destroy');
+Route::get('/personnality', 'PersonnalityController@getAll');
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Personnality;
+use App\Career;
 use Illuminate\Http\Request;
 
 class PersonnalityController extends Controller
@@ -22,43 +23,21 @@ class PersonnalityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $pers = new Personnality;
+        $pers->name = $request->input('name');
+        $pers->description = $request->input('description');
+        try {
+            $pers->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Personnality  $personnality
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Personnality $personnality)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Personnality  $personnality
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Personnality $personnality)
-    {
-        //
-    }
+  
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +46,34 @@ class PersonnalityController extends Controller
      * @param  \App\Personnality  $personnality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personnality $personnality)
+    public function update(Request $request)
     {
-        //
+        $pers = Personnality::find($request->input('id'));
+        $pers->name = $request->input('name');
+        $pers->description = $request->input('description');
+        try {
+            $pers->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        if ($request->input('career') != null) {
+            $career = Career::find($request->input('school'));
+            try {
+                $pers->careers()->attach($career);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
+        if ($request->input('careerDel') != null) {
+            $career = Career::find($request->input('careerDel'));
+            try {
+                $pers->careers()->detach($career);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
     }
 
     /**
@@ -78,8 +82,19 @@ class PersonnalityController extends Controller
      * @param  \App\Personnality  $personnality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personnality $personnality)
+    public function destroy(Request $request)
     {
-        //
+        $id = $request->input('id');
+        try {
+            $pers = Personnality::where('id', $id)->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+        return 'success';
+    }
+
+    public function getAll()
+    {
+        return Personnality::all();
     }
 }

@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <button class="btn" id="add" data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter
-        une carrière</button>
+        une personnalitée</button>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -15,9 +15,9 @@
                 <th scope="row">{{personnality.id}}</th>
                 <td>{{personnality.name}}</td>
                 <td>{{personnality.description.slice(0,40)+' ...'}}</td>
-                <td> <a id="image" data-toggle="modal" data-target="#editModal" (click)="store(career)"><img
+                <td> <a id="image" data-toggle="modal" data-target="#editModal" (click)="store(personnality)"><img
                             src="assets/images/pencil.png"></a> <a data-toggle="modal" data-target="#deleteModal"
-                        (click)="storeDel(career)"><img src="assets/images/delete.png"></a></td>
+                        (click)="storeDel(personnality)"><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
     </table>

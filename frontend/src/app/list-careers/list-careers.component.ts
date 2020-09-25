@@ -14,6 +14,8 @@ export class ListCareersComponent implements OnInit {
 
   public speciality;
 
+  public personnalities;
+
   public list;
 
   public nameSpec;
@@ -23,8 +25,14 @@ export class ListCareersComponent implements OnInit {
 
   ngOnInit(): void {
     this.speciality = this.service.getSpeciality();
+    this.personnalities = this.service.getPersonnalities();
+    let data = { 
+      speciality: this.speciality.id,
+      perso1: this.personnalities[0],
+      perso2: this.personnalities[1]
+    }
     
-    this.http.post('http://localhost:8000/api/speciality/careers/', this.service.getSpeciality()).subscribe(
+    this.http.post('http://localhost:8000/api/career/filter/', data).subscribe(
       data => {
         this.list = data
         this.load1 = false
