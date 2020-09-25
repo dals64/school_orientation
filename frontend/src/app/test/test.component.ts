@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PageNavigationService } from '../Services/pageNavigation.service';
 
 @Component({
   selector: 'app-test',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : PageNavigationService, private router: Router) { }
 
   public reflechi:string[] = new Array(16);
   
@@ -48,7 +50,6 @@ export class TestComponent implements OnInit {
       this.musicien[index] = null;
     }
 
-    console.log(this.results)
   }
 
   onSubmit(){
@@ -104,6 +105,9 @@ export class TestComponent implements OnInit {
     }
 
     console.log(this.results)
+
+    this.service.storePersonnalities(this.results)
+    this.router.navigate(['home', { outlets: { content: ['careers'] } }])
 
   }
 
