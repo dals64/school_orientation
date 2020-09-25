@@ -31,8 +31,8 @@ h1{
 }
 h2{
  color: white;
- font-size: 65px;
-   
+ font-size: 55px;
+ 
  }
  
  .texte_centrer {
@@ -44,7 +44,7 @@ h2{
   }
   h3{
     color: white;
-    font-size: 40px;
+    font-size: 25px;
     padding: 30px;
       
     }
