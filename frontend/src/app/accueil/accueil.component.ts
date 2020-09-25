@@ -29,7 +29,7 @@ export class AccueilComponent implements OnInit {
 
   public test(){
     this.service.storeSpeciality(this.speciality.id)
-    this.router.navigate(['home', { outlets: { content: ['careers'] } }])
+    this.router.navigate(['home', { outlets: { content: ['test'] } }])
   }
 
 }
