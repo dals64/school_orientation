@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/career/test', function(){
     $spec = Speciality::find(1);
-    $pers = Personnality::where('name','communicatif')->first();
+    $pers = Personnality::where('name','corporel')->first();
     $result1 = DB::table('career_personnality')
     ->join('career_speciality', 'career_speciality.career_id', '=', 'career_personnality.career_id')
     ->select('career_speciality.career_id')
