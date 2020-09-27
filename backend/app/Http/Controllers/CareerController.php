@@ -131,13 +131,25 @@ class CareerController extends Controller
     }
 
     public function filter(Request $request){
-        $spec = Speciality::find($request->input('speciality'));
-        return $spec->careers()->getResults();
+        //$spec = Speciality::find($request->input('speciality'));
+        //return $spec->careers()->getResults();
 
-        $pers = Personnality::where('name',$request->input('name'));
+        $pers = Personnality::where('name',$request->input('perso1'))->first();
 
-        $result1 = DB::table('career_speciality')->select('career_id')->where('speciality_id','<>',$spec->id);
-        $result2 = DB::table('career_personnality')->select('career_id')->where('spers_id', '<>', $pers->id);
+        $result1 = DB::table('career_personnality')
+                        ->join('career_speciality', 'career_speciality.career_id', '=', 'career_personnality.career_id')
+                        ->select('career_speciality.career_id')
+                        ->where('career_speciality.speciality_id', '=', $request->input('speciality'))
+                        ->where('career_personnality.personnality_id', '=', $pers->id)
+                        ->get();
+        $ids = array();
+
+        foreach ($result1 as $career) {
+            $ids[] = $career->career_id;
+        }
+
+        $result = Career::find($ids);
         
+        return $result;
     }
 }

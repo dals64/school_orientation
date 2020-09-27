@@ -58,7 +58,7 @@ class PersonnalityController extends Controller
         }
 
         if ($request->input('career') != null) {
-            $career = Career::find($request->input('school'));
+            $career = Career::find($request->input('career'));
             try {
                 $pers->careers()->attach($career);
             } catch (ModelNotFoundException $exception) {
