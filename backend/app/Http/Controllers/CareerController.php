@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Career;
 use App\School;
 Use App\Mentor;
+use App\Outlet;
 Use App\Personnality;
 Use App\Speciality;
 use Illuminate\Http\Request;
@@ -100,6 +101,24 @@ class CareerController extends Controller
             }
         }
 
+        if ($request->input('outlet') != null) {
+            $outlet = Outlet::find($request->input('outlet'));
+            try {
+                $career->outlets()->attach($outlet);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
+        if ($request->input('outletDel') != null) {
+            $outlet = Outlet::find($request->input('outletDel'));
+            try {
+                $career->outlets()->detach($outlet);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
         return 'success';
     }
 
@@ -129,6 +148,7 @@ class CareerController extends Controller
         $career = Career::find($request->input('id'));
         return $career->mentors()->getResults();
     }
+
 
     public function filter(Request $request){
 

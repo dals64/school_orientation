@@ -15,4 +15,9 @@ class Career extends Model
     {
         return $this->belongsToMany('App\Mentor', 'career_mentor', 'career_id', 'mentor_id');
     }
+
+    public function outlets()
+    {
+        return $this->belongsToMany('App\Outlet', 'career_outlet', 'career_id', 'outlet_id');
+    }
 }

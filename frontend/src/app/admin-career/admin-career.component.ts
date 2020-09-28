@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './admin-career.component.html',
   styleUrls: ['./admin-career.component.css']
 })
+
 export class AdminCareerComponent implements OnInit {
 
   constructor(private http : HttpClient) { }
@@ -17,6 +18,8 @@ export class AdminCareerComponent implements OnInit {
 
   public mentors;
 
+  public outlets;
+
   public temp = {
     id:null,
     name:null,
@@ -24,13 +27,23 @@ export class AdminCareerComponent implements OnInit {
     school:null,
     schoolDel:null,
     mentor:null,
-    mentorDel:null
+    mentorDel:null,
+    outlet:null,
+    outletDel:null
   }
 
   public formData = {
     name:null,
     description:null,
-    school:null
+    school:null,
+    outlet:null
+  }
+
+  public pageOfItems: Array<any>;
+
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
   }
 
   ngOnInit(): void {
@@ -65,6 +78,10 @@ export class AdminCareerComponent implements OnInit {
       data => this.mentors = data,
       error => console.log(error)
     )
+    this.http.get('http://localhost:8000/api/outlet').subscribe(
+      data => this.outlets = data,
+      error => console.log(error)
+    )
   }
 
   storeDel(career) {
@@ -75,6 +92,7 @@ export class AdminCareerComponent implements OnInit {
     axios.post('http://localhost:8000/api/career/register/', this.formData).then(function (response) {
       if (response.data = 'success') {
         alert('Ajout de la carrière réussi')
+
       } else {
         alert("erreur lors de l'ajout, veuillez reéssayer")
       }

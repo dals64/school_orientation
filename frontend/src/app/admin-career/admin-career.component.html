@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let career of careers">
+            <tr *ngFor="let career of pageOfItems">
                 <th scope="row">{{career.id}}</th>
                 <td>{{career.name}}</td>
                 <td>{{career.description.slice(0,40)+' ...'}}</td>
@@ -18,6 +18,13 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<!--<div class="card-body">
+    <div *ngFor="let item of pageOfItems">{{item.name}}</div>
+</div>-->
+<div class="card-footer pb-0 pt-3">
+    <jw-pagination [items]="careers" (changePage)="onChangePage($event)"></jw-pagination>
 </div>
 
 
@@ -58,6 +65,12 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="exampleFormControlSelect2">Attacher une débouchée</label>
+                        <select class="form-control" [(ngModel)]="temp.outlet" name="outlet">
+                            <option *ngFor="let outlet of outlets" [value]="outlet.id">{{outlet.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="exampleFormControlSelect2" style="color:red; font-weight:500;">Déttacher une école</label>
                         <select class="form-control" [(ngModel)]="temp.schoolDel" name="schoolDel">
                             <option *ngFor="let school of schools" [value]="school.id">{{school.name}}</option>
@@ -67,6 +80,12 @@
                         <label for="exampleFormControlSelect2" style="color:red; font-weight:500;">Déttacher un mentor</label>
                         <select class="form-control" [(ngModel)]="temp.mentorDel" name="mentorDel">
                             <option *ngFor="let mentor of mentors" [value]="mentor.id">{{mentor.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2" style="color:red; font-weight:500;">Déttacher une débouchée</label>
+                        <select class="form-control" [(ngModel)]="temp.outletDel" name="outletDel">
+                            <option *ngFor="let outlet of outlets" [value]="outlet.id">{{outlet.name}}</option>
                         </select>
                     </div>
 
