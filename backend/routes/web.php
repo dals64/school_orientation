@@ -5,6 +5,8 @@ use app\Http\Controllers\SpecialityController;
 use App\Personnality;
 use App\Speciality;
 use App\Career;
+use App\Outlet;
+use App\School;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Expr\Cast\Array_;
 
@@ -41,4 +43,25 @@ Route::get('/career/test', function(){
 
     $result = Career::find($ids);
     return $result;
+});
+
+Route::get('/outlet/test', function(){
+    $career = Career::find(1);
+    $school = School::find(1);
+
+    $result1 = DB::table('career_outlet')
+    ->join('outlet_school', 'career_outlet.outlet_id', '=', 'outlet_school.outlet_id')
+    ->select('outlet_school.outlet_id')
+    ->where('career_outlet.career_id', '=', $career->id)
+    ->where('outlet_school.school_id', '=', $school->id)
+    ->get();
+
+
+    $ids = array();
+
+    $entreprises=null;
+    foreach ($result1 as $re) {
+        $entreprises = Outlet::find($re->outlet_id)->entreprises()->getResults();
+    }
+    return dd($entreprises);
 });

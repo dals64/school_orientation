@@ -16,7 +16,7 @@ class CreateMentorsTable extends Migration
         Schema::create('mentors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('contact');
+            $table->bigInteger('contact')->nullable();
             $table->string('email');
             $table->timestamps();
         });

@@ -17,8 +17,8 @@ class CreateSchoolsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('location');
-            $table->string('contact');
-            $table->string('site');
+            $table->string('contact')->nullable();
+            $table->string('site')->nullable();
             $table->timestamps();
         });
     }

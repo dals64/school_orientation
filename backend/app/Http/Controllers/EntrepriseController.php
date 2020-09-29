@@ -22,43 +22,23 @@ class EntrepriseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $entreprise = new Entreprise;
+        $entreprise->name = $request->input('name');
+        $entreprise->location = $request->input('location');
+        $entreprise->site = $request->input('site');
+        $entreprise->contact = $request->input('contact');
+
+        try {
+            $entreprise->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Entreprise  $entreprise
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Entreprise $entreprise)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Entreprise  $entreprise
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Entreprise $entreprise)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +47,22 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entreprise $entreprise)
+    public function update(Request $request)
     {
-        //
+        $entreprise = Entreprise::find($request->input('id'));
+
+        $entreprise->name = $request->input('name');
+        $entreprise->location = $request->input('location');
+        $entreprise->site = $request->input('site');
+        $entreprise->contact = $request->input('contact');
+
+        try {
+            $entreprise->save();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
     }
 
     /**
@@ -78,8 +71,18 @@ class EntrepriseController extends Controller
      * @param  \App\Entreprise  $entreprise
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entreprise $entreprise)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            Entreprise::find($request->input('id'))->delete();
+        } catch (ModelNotFoundException $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
+        return 'success';
+    }
+
+    public function getAll(){
+        return Entreprise::all();
     }
 }

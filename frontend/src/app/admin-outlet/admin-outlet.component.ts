@@ -13,11 +13,13 @@ export class AdminOutletComponent implements OnInit {
   constructor(private http : HttpClient, private router : Router) { }
 
   public outlets;
-
+  public entreprises;
   public temp = {
     id:null,
     name:null,
     description:null,
+    entreprise:null,
+    entrepriseDel:null
   }
 
   public formData = {
@@ -49,6 +51,10 @@ export class AdminOutletComponent implements OnInit {
   }
 
   store(outlet){
+    this.http.get('http://localhost:8000/api/entreprise').subscribe(
+      data => this.entreprises = data,
+      error => console.log(error)
+    )
     this.temp.id = outlet.id
     this.temp.name= outlet.name
     this.temp.description = outlet.description

@@ -35,8 +35,6 @@ export class AdminCareerComponent implements OnInit {
   public formData = {
     name:null,
     description:null,
-    school:null,
-    outlet:null
   }
 
   p: number = 1;

@@ -13,7 +13,7 @@
             <tr *ngFor="let career of careers | paginate: { itemsPerPage: 10, currentPage: p }">
                 <th scope="row">{{career.id}}</th>
                 <td>{{career.name}}</td>
-                <td>{{career.description.slice(0,40)+' ...'}}</td>
+                <td>{{career.description}}</td>
                 <td> <a id="image"   data-toggle="modal" data-target="#editModal" (click)="store(career)"><img src="assets/images/pencil.png"></a> <a data-toggle="modal" data-target="#deleteModal" (click)="storeDel(career)"><img src="assets/images/delete.png"></a></td>
             </tr>
         </tbody>
@@ -121,7 +121,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Description</label>
-                        <textarea class="form-control" name="description" placeholder="" [(ngModel)]="formData.description" required></textarea>
+                        <textarea class="form-control" name="description" placeholder="" [(ngModel)]="formData.description"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"

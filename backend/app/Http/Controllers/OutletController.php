@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Outlet;
+use App\School;
+Use App\Career;
+use App\Entreprise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class OutletController extends Controller
 {
@@ -51,6 +55,24 @@ class OutletController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
 
+        if ($request->input('entreprise') != null) {
+            $entreprise = Entreprise::find($request->input('entreprise'));
+            try {
+                $outlet->entreprises()->attach($entreprise);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
+        if ($request->input('entrepriseDel') != null) {
+            $entreprise = Entreprise::find($request->input('entrepriseDel'));
+            try {
+                $outlet->entreprises()->detach($entreprise);
+            } catch (ModelNotFoundException $exception) {
+                return back()->withError($exception->getMessage())->withInput();
+            }
+        }
+
         return 'success';
     }
 
@@ -69,5 +91,19 @@ class OutletController extends Controller
         }
 
         return 'success';
+    }
+
+    public function getList(Request $request){
+        $school = School::find($request->input('school'));
+        $career = Career::find($request->input('career'));
+
+        $result1 = DB::table('career_outlet')
+        ->join('outlet_school', 'career_outlet.outlet_id', '=', 'outlet_school.outlet_id')
+        ->select('outlet_school.outlet_id')
+        ->where('career_outlet.career_id', '=', $career->id)
+        ->where('outlet_school.school_id', '=', $school->id)
+        ->get();
+
+        return dd($result1);
     }
 }

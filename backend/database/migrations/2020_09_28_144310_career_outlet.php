@@ -13,7 +13,11 @@ class CareerOutlet extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('career_outlet', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('outlet_id');
+            $table->unsignedBigInteger('career_id');
+        });
     }
 
     /**

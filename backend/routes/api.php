@@ -43,6 +43,7 @@ Route::get('/career', 'CareerController@getAll');
 Route::post('/outlet/register/','OutletController@create');
 Route::post('/outlet/update/','OutletController@update');
 Route::post('/outlet/delete/','OutletController@destroy');
+Route::post('/outlet/getList/', 'OutletController@getList');
 Route::get('/outlet', 'OutletController@getAll');
 
 Route::post('/mentor/register/','MentorController@create');
@@ -61,7 +62,10 @@ Route::post('/personnality/update/', 'PersonnalityController@update');
 Route::post('/personnality/delete/', 'PersonnalityController@destroy');
 Route::get('/personnality', 'PersonnalityController@getAll');
 
-
+Route::post('/entreprise/register/', 'EntrepriseController@create');
+Route::post('/entreprise/update/', 'EntrepriseController@update');
+Route::post('/entreprise/delete/', 'EntrepriseController@destroy');
+Route::get('/entreprise', 'EntrepriseController@getAll');
 
 
 Route::group([

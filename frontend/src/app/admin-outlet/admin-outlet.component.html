@@ -49,6 +49,18 @@
                         <textarea class="form-control" name="description" placeholder="" value={{temp.description}} [(ngModel)]="temp.description"></textarea> 
                     </div>
                     <div class="form-group">
+                        <label for="exampleFormControlSelect2">Attacher une entreprise</label>
+                        <select class="form-control" [(ngModel)]="temp.entreprise" name="entreprise">
+                            <option *ngFor="let entreprise of entreprises" [value]="entreprise.id">{{entreprise.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2" style="color:red; font-weight:500;">Déttacher une entreprise</label>
+                        <select class="form-control" [(ngModel)]="temp.entrepriseDel" name="entrepriseDel">
+                            <option *ngFor="let entreprise of entreprises" [value]="entreprise.id">{{entreprise.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                             style="margin-right: 15px;">Annuler</button>
                         <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Enregistrer</button>
@@ -84,7 +96,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Description</label>
-                        <textarea class="form-control" name="description" placeholder=""  [(ngModel)]="formData.description" required></textarea>
+                        <textarea class="form-control" name="description" placeholder=""  [(ngModel)]="formData.description"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"

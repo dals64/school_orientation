@@ -23,7 +23,11 @@ export class OutletsComponent implements OnInit {
   ngOnInit(): void {
     this.career = this.service.getCareer()
     this.school = this.service.getSchool()
-    this.http.post('http://localhost:8000/api/school/outlets/',this.service.getSchool()).subscribe(
+    let postData = { 
+      school: this.service.getSchool().id,
+      career: this.service.getCareer().id
+    }
+    this.http.post('http://localhost:8000/api/outlet/getList/', postData).subscribe(
       data => {
         this.list = data
         this.load1 = false
