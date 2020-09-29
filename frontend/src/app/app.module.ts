@@ -34,7 +34,7 @@ import { FourOfourComponent } from './four-ofour/four-ofour.component';
 import { AdminPersonnalityComponent } from './admin-personnality/admin-personnality.component';
 import { TestComponent } from './test/test.component';
 import { AdminEntrepriseComponent } from './admin-entreprise/admin-entreprise.component';
-import { JwPaginationComponent } from 'jw-angular-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -61,16 +61,15 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
     AdminPersonnalityComponent,
     TestComponent,
     AdminEntrepriseComponent,
-    JwPaginationComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CarouselModule,
-    FormsModule,
     HttpClientModule,
-    JwPaginationComponent
+    NgxPaginationModule,
   ],
   providers: [
     SpecialityService,

@@ -32,6 +32,8 @@ export class AdminBookComponent implements OnInit {
 
   public error;
 
+  p: number = 1;
+
   ngOnInit(): void {
     this.http.get('http://localhost:8000/api/book').subscribe(
       data => this.books = data,

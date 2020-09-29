@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 600px;">
     <button class="btn" id="add"  data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter un mentor</button>
     <table class="table">
         <thead class="thead-dark">
@@ -11,7 +11,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let mentor of mentors">
+            <tr *ngFor="let mentor of mentors | paginate: { itemsPerPage: 10, currentPage: p }">
                 <th scope="row">{{mentor.id}}</th>
                 <td>{{mentor.name}}</td>
                 <td>{{mentor.contact}}</td>
@@ -21,6 +21,11 @@
         </tbody>
     </table>
 </div>
+
+<div class="offset-3" style="margin-top: 40px;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
 
 <!-- edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 600px;">
     <button class="btn" id="add"  data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter une carrière</button>
     <table class="table">
         <thead class="thead-dark">
@@ -10,7 +10,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let career of pageOfItems">
+            <tr *ngFor="let career of careers | paginate: { itemsPerPage: 10, currentPage: p }">
                 <th scope="row">{{career.id}}</th>
                 <td>{{career.name}}</td>
                 <td>{{career.description.slice(0,40)+' ...'}}</td>
@@ -20,11 +20,8 @@
     </table>
 </div>
 
-<!--<div class="card-body">
-    <div *ngFor="let item of pageOfItems">{{item.name}}</div>
-</div>-->
-<div class="card-footer pb-0 pt-3">
-    <jw-pagination [items]="careers" (changePage)="onChangePage($event)"></jw-pagination>
+<div class="offset-3" style="margin-top: 40px;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 

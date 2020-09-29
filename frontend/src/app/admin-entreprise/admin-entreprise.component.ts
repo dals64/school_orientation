@@ -9,6 +9,8 @@ export class AdminEntrepriseComponent implements OnInit {
 
   constructor() { }
 
+  p: number = 1;
+
   ngOnInit(): void {
   }
 

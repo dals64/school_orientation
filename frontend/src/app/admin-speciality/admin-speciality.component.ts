@@ -26,7 +26,7 @@ export class AdminSpecialityComponent implements OnInit {
     career: null
   }
 
-
+  p: number = 1;
   public specialities;
 
   ngOnInit(): void {

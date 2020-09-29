@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="min-height: 600px;">
     <button class="btn" id="add" data-toggle="modal" data-target="#addModal"> <img src="assets/images/add.png"> Ajouter un livre</button>
     <table class="table">
         <thead class="thead-dark">
@@ -13,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books">
+            <tr *ngFor="let book of books | paginate: { itemsPerPage: 10, currentPage: p }">
                 <th scope="row">{{book.id}}</th>
                 <td>{{book.title}}</td>
                 <td>{{book.autor}}</td>
@@ -24,6 +24,10 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<div class="offset-3" style="margin-top: 40px;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 
 <!-- edit Modal -->

@@ -13,6 +13,8 @@ export class AdminSchoolComponent implements OnInit {
 
   public schools;
 
+  p: number = 1;
+
   ngOnInit(): void {
     this.http.get('http://localhost:8000/api/school').subscribe(
       data => this.schools = data,

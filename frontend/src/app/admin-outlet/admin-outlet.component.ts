@@ -26,6 +26,8 @@ export class AdminOutletComponent implements OnInit {
     school:null
   }
 
+  p: number = 1;
+
   ngOnInit(): void {
     this.http.get('http://localhost:8000/api/outlet').subscribe(
       data => this.outlets = data,

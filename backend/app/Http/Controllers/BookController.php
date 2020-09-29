@@ -6,7 +6,6 @@ use App\Book;
 use Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-require_once $path = base_path('vendor/pear/http_request2/Http/Request2.php');
 
 class BookController extends Controller
 {

@@ -28,6 +28,8 @@ export class AdminPersonnalityComponent implements OnInit {
     careerDel : null
   }
 
+  p: number = 1;
+
   ngOnInit(): void {
     this.http.get('http://localhost:8000/api/personnality').subscribe(
       data => this.personnalities = data,
