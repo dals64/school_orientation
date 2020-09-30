@@ -8,6 +8,6 @@ class Outlet extends Model
 {
     public function entreprises()
     {
-        return $this->belongsToMany('App\Entreprise', 'enterprise_outlet', 'outlet_id', 'entreprise_id');
+        return $this->belongsToMany('App\Entreprise', 'entreprise_outlet', 'outlet_id', 'entreprise_id');
     }
 }

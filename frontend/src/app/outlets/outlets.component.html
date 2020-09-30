@@ -10,6 +10,9 @@
     <img src="assets/images/Spinner-1s-237px.gif" alt="">
 </div>
 <div class="mt-4 col-8 offset-2" id="singleschool" *ngFor="let item of list">
-    <h4>{{item.name}}</h4>
-    <p>{{item.description}}</p>
+    <h3>{{item.outlet.name}}</h3>
+    <p>{{item.outlet.description}}</p>
+    <p>Liste des entreprises qui embauchent pour ce métier : <span *ngFor="let entreprise of item.entreprises">
+        {{entreprise.name}},
+    </span>...</p>
 </div>

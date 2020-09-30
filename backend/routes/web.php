@@ -56,12 +56,18 @@ Route::get('/outlet/test', function(){
     ->where('outlet_school.school_id', '=', $school->id)
     ->get();
 
-
-    $ids = array();
+    $result = array();
 
     $entreprises=null;
+
     foreach ($result1 as $re) {
-        $entreprises = Outlet::find($re->outlet_id)->entreprises()->getResults();
+        $outlet = Outlet::find($re->outlet_id);
+        $entreprises = $outlet->entreprises()->getResults();
+        $result[] = [
+            "outlet"=>$outlet,
+            "entreprises"=>$entreprises
+        ];
+
     }
-    return dd($entreprises);
+    return dd($result);
 });

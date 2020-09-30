@@ -14,7 +14,7 @@
             <tr *ngFor="let personnality of personnalities | paginate: { itemsPerPage: 10, currentPage: p }">
                 <th scope="row">{{personnality.id}}</th>
                 <td>{{personnality.name}}</td>
-                <td>{{personnality.description.slice(0,40)+' ...'}}</td>
+                <td>{{personnality.description}}</td>
                 <td> <a id="image" data-toggle="modal" data-target="#editModal" (click)="store(personnality)"><img
                             src="assets/images/pencil.png"></a> <a data-toggle="modal" data-target="#deleteModal"
                         (click)="storeDel(personnality)"><img src="assets/images/delete.png"></a></td>

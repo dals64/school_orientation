@@ -1,8 +1,9 @@
 <div class="loader" *ngIf="loading || load1">
     <img src="assets/images/Spinner-1s-237px.gif" alt="">
 </div>
-<div class="mt-4 col-8 offset-2" id="singleschool" *ngFor="let item of list" (click)="storeSchool(item.id, item.name)">
+<div class="mt-4 col-8 offset-2" id="singleschool" *ngFor="let item of list">
     <h4>{{item.name}}</h4> <span>situation:  {{item.location}}</span>
-    <p> <span id="contact">contact : {{item.contact}}</span>  <a href={{item.site}}>Pour plus d'informations, visiter le site</a></p>
+    <p> <span id="contact">contact : {{item.contact}}</span>  <a href={{item.site}} target="_blank">Pour plus d'informations, visiter le site</a></p>
+    <div (click)="storeSchool(item.id, item.name)">Consulter les débouchées</div>    
 </div>
 

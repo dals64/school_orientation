@@ -104,6 +104,19 @@ class OutletController extends Controller
         ->where('outlet_school.school_id', '=', $school->id)
         ->get();
 
-        return dd($result1);
+        $result = array();
+
+        $entreprises = null;
+
+        foreach ($result1 as $re) {
+            $outlet = Outlet::find($re->outlet_id);
+            $entreprises = $outlet->entreprises()->getResults();
+            $result[] = [
+                "outlet" => $outlet,
+                "entreprises" => $entreprises
+            ];
+        }
+        
+        return $result;
     }
 }
