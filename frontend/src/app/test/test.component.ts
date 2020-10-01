@@ -9,6 +9,16 @@ import { PageNavigationService } from '../Services/pageNavigation.service';
 })
 export class TestComponent implements OnInit {
 
+  /*var checks = document.querySelectorAll(".check");
+  var max = 2;
+  for (var i = 0; i < checks.length; i++)
+    checks[i].onclick = selectiveCheck;
+  function selectiveCheck(event) {
+    var checkedChecks = document.querySelectorAll(".check:checked");
+    if (checkedChecks.length >= max + 1)
+      return false;
+  }*/
+
   constructor(private service : PageNavigationService, private router: Router) { }
 
   public reflechi:string[] = new Array(16);
@@ -36,6 +46,138 @@ export class TestComponent implements OnInit {
     { 'personnality': 'rationnel', 'count': 0 },
     { 'personnality': 'musicien', 'count': 0 },
   ]
+
+  selectiveCheck(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check1:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck2(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check2:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck3(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check3:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck4(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check4:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck5(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check5:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck6(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check6:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck7(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check7:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck8(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check8:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck9(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check9:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck10(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check10:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck11(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check11:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck12(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check12:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck13(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check13:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck14(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check14:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck15(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check15:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+  selectiveCheck16(event) {
+    let max = 2;
+    let checkedChecks = document.querySelectorAll(".check16:checked")
+    if (checkedChecks.length >= max + 1) {
+      return false
+    }
+  }
+
+
+
+
 
   ngOnInit(): void {
     this.results[0] = null
