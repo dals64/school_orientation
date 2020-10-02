@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PageNavigationService } from '../Services/pageNavigation.service';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http'
+import { calcPossibleSecurityContexts } from '@angular/compiler/src/template_parser/binding_parser';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-list-careers',
@@ -19,6 +21,8 @@ export class ListCareersComponent implements OnInit {
   public list;
 
   public nameSpec;
+
+  public items;
 
   loading = false;
   load1 = true;
@@ -39,6 +43,29 @@ export class ListCareersComponent implements OnInit {
       },
       error => console.log(error)
     );
+
+    this.http.post('http://localhost:8000/api/personnality/index/', {perso1: this.personnalities[0],perso2: this.personnalities[1]}).subscribe(
+      data => console.log(data), 
+        //this.items = data
+        
+        
+          /*if (element.name='joueur_de_mots') {
+            element.name='Joueur de mots'
+          }if(element.name='communicatif'){
+            element.name = 'Communicatif'
+          } if (element.name = 'corporel') {
+            element.name = 'Corporel'
+          } if (element.name = 'Concepteur') {
+            element.name = 'Concepteur'
+          } if (element.name = 'musicien') {
+            element.name = 'Musicien'
+          } if (element.name = 'reflechi') {
+            element.name = 'Réfléchi'
+          } if (element.name = 'rationnel') {
+            element.name = 'Rationnel'
+          }*/
+      error => console.log(error)
+    )
   }
 
   redirect(id, name){

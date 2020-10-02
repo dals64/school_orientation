@@ -13,9 +13,15 @@ class PersonnalityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $pers1 = Personnality::where('name',$request->input('perso1'));
+        $pers2 = Personnality::where('name', $request->input('perso2'));
+        $result = array();
+        $result[] = $pers1;
+        $result[] = $pers2;
+
+        return $pers1;
     }
 
     /**
