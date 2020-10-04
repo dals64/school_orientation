@@ -22,7 +22,9 @@ export class ListCareersComponent implements OnInit {
 
   public nameSpec;
 
-  public items;
+  public temp;
+
+  public items = [];
 
   loading = false;
   load1 = true;
@@ -45,25 +47,31 @@ export class ListCareersComponent implements OnInit {
     );
 
     this.http.post('http://localhost:8000/api/personnality/index/', {perso1: this.personnalities[0],perso2: this.personnalities[1]}).subscribe(
-      data => console.log(data), 
-        //this.items = data
-        
-        
-          /*if (element.name='joueur_de_mots') {
-            element.name='Joueur de mots'
-          }if(element.name='communicatif'){
-            element.name = 'Communicatif'
-          } if (element.name = 'corporel') {
-            element.name = 'Corporel'
-          } if (element.name = 'Concepteur') {
-            element.name = 'Concepteur'
-          } if (element.name = 'musicien') {
-            element.name = 'Musicien'
-          } if (element.name = 'reflechi') {
-            element.name = 'Réfléchi'
-          } if (element.name = 'rationnel') {
-            element.name = 'Rationnel'
-          }*/
+      data => {
+        this.temp = data;
+        this.temp.forEach(element => {
+          if (element !== null) {
+            if (element.name === 'joueur_de_mots') {
+              element.name = 'Joueur de mots'
+            } if (element.name === 'communicatif') {
+              element.name = 'Communicatif'
+            } if (element.name === 'corporel') {
+              element.name = 'Corporel'
+            } if (element.name === 'Concepteur') {
+              element.name = 'Concepteur'
+            } if (element.name === 'musicien') {
+              element.name = 'Musicien'
+            } if (element.name === 'reflechi') {
+              element.name = 'Réfléchi'
+            } if (element.name === 'rationnel') {
+              element.name = 'Rationnel'
+            }
+
+            this.items.push(element)
+          }
+        });
+        console.log(this.items)
+      }, 
       error => console.log(error)
     )
   }

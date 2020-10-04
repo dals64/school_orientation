@@ -61,7 +61,7 @@ Route::post('/personnality/register/', 'PersonnalityController@create');
 Route::post('/personnality/update/', 'PersonnalityController@update');
 Route::post('/personnality/delete/', 'PersonnalityController@destroy');
 Route::get('/personnality', 'PersonnalityController@getAll');
-Route::post('/personnality/index', 'PersonnalityController@index');
+Route::post('/personnality/index/', 'PersonnalityController@index');
 
 Route::post('/entreprise/register/', 'EntrepriseController@create');
 Route::post('/entreprise/update/', 'EntrepriseController@update');

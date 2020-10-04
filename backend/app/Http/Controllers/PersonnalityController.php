@@ -15,13 +15,13 @@ class PersonnalityController extends Controller
      */
     public function index(Request $request)
     {
-        $pers1 = Personnality::where('name',$request->input('perso1'));
-        $pers2 = Personnality::where('name', $request->input('perso2'));
+        $pers1 = Personnality::where('name', $request->input('perso1'))->first();
+        $pers2 = Personnality::where('name', $request->input('perso2'))->first();
         $result = array();
         $result[] = $pers1;
         $result[] = $pers2;
-
-        return $pers1;
+        
+        return $result;
     }
 
     /**

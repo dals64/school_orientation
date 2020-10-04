@@ -1,6 +1,9 @@
-<div class="container-fluid">
-    <div *ngFor="let item of items">
-        
+<div class="row justify-content-center" id="careerBlock">
+    <div>
+        Votre (vos) personnalité(s) est (sont) la (les) suivante(s) selon votre test:
+        <div *ngFor="let item of items">
+            {{item.name}} : {{item.description}}
+        </div>
     </div>
 </div>
 <div class="container-fluid" id="title">
