@@ -9,7 +9,7 @@
 }
 
 #title{
-    margin-top: 100px;
+    margin-top: 40px;
     text-align: center;
 }
 
@@ -22,14 +22,19 @@
     /* background-color: rgba(13, 91, 155, 0.335); */
 }
 
-#carerBlock{
+#careerBlock{
     width: 840px;
-    padding: 25px;
-    margin: 1px 20px 20px 20px;
-   
-    box-shadow: 3px 2px 3px 2px#f79592;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 3px 2px 3px 2px#474747;
     border-radius: 10px;
-   top: 5%;
+    top: 5%;
     left: 35%;
     color: black;
+    font-size: 16px;
+ }
+
+ #pers{
+     font-weight: 700;
+     font-size: 16px;
  }
