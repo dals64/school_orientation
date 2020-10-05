@@ -16,7 +16,7 @@ class CreatePersonnalitiesTable extends Migration
         Schema::create('personnalities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description',1000)->nullable();
             $table->timestamps();
         });
     }
