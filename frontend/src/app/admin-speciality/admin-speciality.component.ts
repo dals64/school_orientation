@@ -12,11 +12,12 @@ export class AdminSpecialityComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   public temp = {
-    id:null,
-    name:null,
-    career:null,
-    careerDel:null
-  }
+    id: null,
+    name: null,
+    career: null,
+    careerDel: null
+  }; 
+
   public test;
   
   public careers;
@@ -30,58 +31,65 @@ export class AdminSpecialityComponent implements OnInit {
   public specialities;
 
   ngOnInit(): void {
-   /*
-    axios.get('http://localhost:8000/api/speciality').then(function (response) {
-      
-    }).catch(function (error) {
-      console.log(error);
-    })
-    */
+
     this.http.get('http://localhost:8000/api/speciality').subscribe(
       data => this.specialities = data,
       error => console.log(error)
     );
+    
   }
 
   edit(){
-    axios.post('http://localhost:8000/api/speciality/update/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('modification de la spécialité réussie')
-      } else {
-        alert("erreur lors de la modification")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    
+    this.http.post('http://localhost:8000/api/speciality/update/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('Modification réussie')
+          this.ngOnInit()
+          this.temp.career = null
+          this.temp.careerDel = null
+        } else {
+          alert("erreur lors de la modification")
+        }
+      });
+
+
   }
 
 
   register(){
-    
-    axios.post('http://localhost:8000/api/speciality/register/',this.formData).then(function (response) {
-      if (response.data = 'success'){
-        alert('Ajout de la spécialité réussi')
-      }else{
-        alert("erreur lors de l'ajout, veuillez reéssayer")
+
+    this.http.post('http://localhost:8000/api/speciality/register/', this.formData).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('Ajout de la spécialité réussi')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de l'ajout, veuillez reéssayer")
+        }
       }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    )
+
   }
 
   delete(){
-    axios.post('http://localhost:8000/api/speciality/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('spécialité supprimée')
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+  
+    this.http.post('http://localhost:8000/api/speciality/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('spécialité supprimée')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
+
   }
 
   storeDel(speciality){

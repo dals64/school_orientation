@@ -35,6 +35,7 @@ export class SignInComponent implements OnInit {
 
   handleError(error){
     this.error = error.error.error;
+    ;
   }
 
   handleResponse(data){
