@@ -38,16 +38,19 @@ export class AdminOutletComponent implements OnInit {
   }
 
   edit(){
-    axios.post('http://localhost:8000/api/outlet/update/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('modification réussie')
-      } else {
-        alert("erreur lors de la modification, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/outlet/update/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          this.temp.entreprise = null
+          this.temp.entrepriseDel = null
+          alert('modification réussie')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la modification, veuillez reéssayer")
+        }
+      });
   }
 
   store(outlet){
@@ -66,30 +69,32 @@ export class AdminOutletComponent implements OnInit {
 
   register(){
   
-    axios.post('http://localhost:8000/api/outlet/register/', this.formData).then(function (response) {
-      if (response.data = 'success') {
-        alert('Ajout de la débouchée réussi')
-      } else {
-        alert("erreur lors de l'ajout, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/outlet/register/', this.formData).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('débouchée enregistrée')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de l'ajout, veuillez reéssayer")
+        }
+      });
    
   }
 
   delete(){
-    axios.post('http://localhost:8000/api/outlet/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('élément supprimé')
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/outlet/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('débouchée supprimée')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
   }
 
 }

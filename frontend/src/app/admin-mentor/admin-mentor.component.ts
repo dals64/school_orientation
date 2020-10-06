@@ -36,16 +36,17 @@ export class AdminMentorComponent implements OnInit {
   }
 
   edit(){
-    axios.post('http://localhost:8000/api/mentor/update/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('modification du mentor réussie');
-      } else {
-        alert("erreur lors de la modification, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/mentor/update/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('modification réussie')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la modification")
+        }
+      });
   }
 
   store(mentor){
@@ -60,29 +61,31 @@ export class AdminMentorComponent implements OnInit {
   }
 
   register(){
-    axios.post('http://localhost:8000/api/mentor/register/', this.formData).then(function (response) {
-      if (response.data = 'success') {
-        alert('Ajout du mentor réussi');
-      } else {
-        alert("erreur lors de l'ajout, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/mentor/register/', this.formData).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('mentor ajouté')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de l'ajout, veuillez reéssayer")
+        }
+      });
   }
   
   delete(){
-    axios.post('http://localhost:8000/api/mentor/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('mentor supprimé');
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/mentor/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('mentor supprimé')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
   }
 
 }

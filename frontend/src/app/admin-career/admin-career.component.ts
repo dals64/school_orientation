@@ -47,16 +47,24 @@ export class AdminCareerComponent implements OnInit {
   }
 
   edit(){
-    axios.post('http://localhost:8000/api/career/update/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('Modification de la carrière réussi')
-      } else {
-        alert("erreur lors de la modification, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    
+    this.http.post('http://localhost:8000/api/career/update/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('Modification réussie')
+          this.ngOnInit()
+          this.temp.school = null
+          this.temp.schoolDel = null
+          this.temp.outlet = null
+          this.temp.outletDel = null
+          this.temp.mentor = null
+          this.temp.mentorDel = null
+        } else {
+          alert("erreur lors de la modification")
+        }
+      });
   }
 
   store(career){
@@ -82,29 +90,31 @@ export class AdminCareerComponent implements OnInit {
   }
 
   register(){
-    axios.post('http://localhost:8000/api/career/register/', this.formData).then(function (response) {
-      if (response.data = 'success') {
-        alert('Ajout de la carrière réussi')
-
-      } else {
-        alert("erreur lors de l'ajout, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    
+    this.http.post('http://localhost:8000/api/career/register/', this.formData).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('Ajout de la carrière réussi')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de l'ajout, veuillez reéssayer")
+        }
+      });
   }
 
   delete(){
-    axios.post('http://localhost:8000/api/career/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('carrière supprimée')
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/career/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('carrière supprimée')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
   }
 }

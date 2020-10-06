@@ -80,6 +80,8 @@ class PersonnalityController extends Controller
                 return back()->withError($exception->getMessage())->withInput();
             }
         }
+		
+		return 'success';
     }
 
     /**

@@ -56,34 +56,34 @@ export class AdminBookComponent implements OnInit {
       uploadData.append('price', this.formData.price)
       uploadData.append('domain', this.formData.domain)
 
-      axios.post('http://localhost:8000/api/book/register/', uploadData).then(function (response) {
-        if (response.data = 'success') {
-          alert('Ajout du livre réussi')
-        } else {
-          alert("erreur lors de l'ajout, veuillez reéssayer")
-        }
-        console.log(response.data)
-      }).catch(function (error) {
-        console.log(error);
-        alert("erreur lors de connexion au serveur, veuillez reéssayer")
-      });
+      this.http.post('http://localhost:8000/api/book/register/', uploadData).subscribe(
+        data => console.log(data),
+        error => {
+          console.log(error.error.text)
+          if (error.error.text === "success") {
+            alert('Ajout du livre réussi')
+            this.ngOnInit()
+          } else {
+            alert("erreur lors de l'ajout, veuillez reéssayer")
+          }
+        });
     }
     
   }
 
   delete(){
-    console.log(this.temp)
-    axios.post('http://localhost:8000/api/book/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('Suppression du livre réussie')
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-      console.log(response.data)
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    
+    this.http.post('http://localhost:8000/api/book/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('livre supprimé')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
   
   }
 
@@ -108,18 +108,18 @@ export class AdminBookComponent implements OnInit {
       data.append('domain', this.temp.domain)
     }
 
-  
-    axios.post('http://localhost:8000/api/book/update/', data).then(function (response) {
-      if (response.data === 'success') {
-        alert('modification du livre réussie')
-      } else {
-        alert("erreur lors de la modification, veuillez reéssayer")
-      }
-      console.log(response.data)
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/book/update/', data).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('modification du livre réussie')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la modification, veuillez reéssayer")
+        }
+      });
+
   }
 
 }

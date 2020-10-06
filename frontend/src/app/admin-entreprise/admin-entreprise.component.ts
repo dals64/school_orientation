@@ -38,43 +38,46 @@ export class AdminEntrepriseComponent implements OnInit {
   }
 
   register(){
-    axios.post('http://localhost:8000/api/entreprise/register/', this.formData).then(function (response) {
-      if (response.data = 'success') {
-        alert('Entreprise enregistrée')
-      } else {
-        alert("erreur lors de la création, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/entreprise/register/', this.formData).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('Ajout réussi')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de l'ajout, veuillez reéssayer")
+        }
+      });
 
   }
 
   edit(){
-    axios.post('http://localhost:8000/api/entreprise/update/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('Modification réussie')
-      } else {
-        alert("erreur lors de la modification, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/entreprise/update/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('modification réussie')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la modification, veuillez reéssayer")
+        }
+      });
   }
 
   delete(){
-    axios.post('http://localhost:8000/api/entreprise/delete/', this.temp).then(function (response) {
-      if (response.data = 'success') {
-        alert('Suppression réussie')
-      } else {
-        alert("erreur lors de la suppression, veuillez reéssayer")
-      }
-    }).catch(function (error) {
-      console.log(error);
-      alert("erreur lors de connexion au serveur, veuillez reéssayer")
-    });
+    this.http.post('http://localhost:8000/api/entreprise/delete/', this.temp).subscribe(
+      data => console.log(data),
+      error => {
+        console.log(error.error.text)
+        if (error.error.text === "success") {
+          alert('entreprise supprimée')
+          this.ngOnInit()
+        } else {
+          alert("erreur lors de la suppression, veuillez reéssayer")
+        }
+      });
   }
 
   store(entreprise){
